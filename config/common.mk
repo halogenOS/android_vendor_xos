@@ -149,6 +149,7 @@ endif
 
 
 # Versioning
+ANDROID_VERSION = 6.0.1
 XOS_VERSION = 0.1
 ifndef XOS_BUILD_TYPE
     XOS_BUILD_TYPE := alpha1
