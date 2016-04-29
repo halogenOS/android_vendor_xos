@@ -60,62 +60,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
 
-# Misc packages
-PRODUCT_PACKAGES += \
-    BluetoothExt \
-    Browser \
-    MusicFX \
-    libemoji \
-    libsepol \
-    e2fsck \
-    mke2fs \
-    tune2fs \
-    bash \
-    powertop \
-    mount.exfat \
-    fsck.exfat \
-    mkfs.exfat \
-    mkfs.f2fs \
-    fsck.f2fs \
-    fibmap.f2fs \
-    mkfs.ntfs \
-    fsck.ntfs \
-    mount.ntfs \
-    gdbserver \
-    micro_bench \
-    oprofiled \
-    sqlite3 \
-    strace \
-    Terminal
-
-# Stagefright FFMPEG plugin
-PRODUCT_PACKAGES += \
-    libffmpeg_extractor \
-    libffmpeg_omx \
-    media_codecs_ffmpeg.xml
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.sf.omx-plugin=libffmpeg_omx.so \
-    media.sf.extractor-plugin=libffmpeg_extractor.so
-
-# Telephony packages
-PRODUCT_PACKAGES += \
-    messaging \
-    CellBroadcastReceiver \
-    Stk
-
-#RCS //Needed for Contacts and Mms Apps
-PRODUCT_PACKAGES += \
-    rcs_service_aidl \
-    rcs_service_aidl.xml \
-    rcs_service_aidl_static \
-    rcs_service_api \
-    rcs_service_api.xml
-
-# Mms depends on SoundRecorder for recorded audio messages
-PRODUCT_PACKAGES += \
-    SoundRecorder
-
 # World APN list
 PRODUCT_COPY_FILES += \
     vendor/xos/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
@@ -147,6 +91,8 @@ ifneq ($(TARGET_BUILD_VARIANT),eng)
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
 
+# Additional packages
+-include vendor/xos/config/packages.mk
 
 # Versioning
 ANDROID_VERSION = 6.0.1
