@@ -147,4 +147,21 @@ ifneq ($(TARGET_BUILD_VARIANT),eng)
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
 
+
+# Versioning
+XOS_VERSION = 0.1
+ifndef XOS_BUILD_TYPE
+    XOS_BUILD_TYPE := alpha1
+    PLATFORM_VERSION_CODENAME := alpha1
+endif
+
+# Set all versions
+XOS_VERSION := XOS_$(XOS_BUILD)_$(ANDROID_VERSION)_$(shell date -u +%Y%m%d-%H%M).$(XOS_VERSION)-$(XOS_BUILD_TYPE)
+XOS_MOD_VERSION := XOS_$(XOS_BUILD)_$(ANDROID_VERSION)_$(shell date -u +%Y%m%d-%H%M).$(XOS_VERSION)-$(XOS_BUILD_TYPE)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    BUILD_DISPLAY_ID=$(BUILD_ID) \
+    ro.XOS.version=$(XOS_VERSION) \
+    ro.mod.version=$(XOS_BUILD_TYPE)-v0.1-alpha \
+    
 $(call inherit-product-if-exists, vendor/extra/product.mk)
