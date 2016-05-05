@@ -108,7 +108,7 @@ XOS_MOD_VERSION := XOS_$(XOS_BUILD)_$(ANDROID_VERSION)_$(shell date +%Y%m%d)_$(X
 
 PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
-    ro.xos.version=$(XOS_VERSION) \
+    ro.XOS.version=$(XOS_VERSION) \
     ro.mod.version=$(XOS_BUILD_TYPE)-v0.1-alpha \
     
 $(call inherit-product-if-exists, vendor/extra/product.mk)
