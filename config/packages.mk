@@ -36,6 +36,7 @@ PRODUCT_PACKAGES += \
 
 # Extra Tools and Libraries
 PRODUCT_PACKAGES += \
+	busybox \
     libemoji \
     libsepol \
     e2fsck \
