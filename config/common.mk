@@ -98,8 +98,8 @@ endif
 ANDROID_VERSION = 6.0.1
 XOS_VERSION_NUMBER = 0.2
 ifndef XOS_BUILD_TYPE
-    XOS_BUILD_TYPE := alpha1
-    PLATFORM_VERSION_CODENAME := alpha1
+    XOS_BUILD_TYPE := alpha
+    PLATFORM_VERSION_CODENAME := alpha
 endif
 
 # Set all versions
