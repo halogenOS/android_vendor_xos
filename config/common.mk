@@ -96,7 +96,7 @@ endif
 
 # Versioning
 ANDROID_VERSION = 6.0.1
-XOS_VERSION_NUMBER = 0.2
+XOS_VERSION_NUMBER = 0.3
 ifndef XOS_BUILD_TYPE
     XOS_BUILD_TYPE := alpha
     PLATFORM_VERSION_CODENAME := alpha
@@ -109,6 +109,6 @@ XOS_MOD_VERSION := XOS_$(XOS_BUILD)_$(ANDROID_VERSION)_$(shell date +%Y%m%d)_$(X
 PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
     ro.XOS.version=$(XOS_VERSION_NUMBER) \
-    ro.mod.version=$(XOS_BUILD_TYPE)-v0.2-alpha \
+    ro.mod.version=$(XOS_BUILD_TYPE)-v0.3 \
     
 $(call inherit-product-if-exists, vendor/extra/product.mk)
