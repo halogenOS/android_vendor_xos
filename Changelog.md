@@ -7,6 +7,24 @@
 
 ## The Changelog
 
+### halogenOS - v0.3-alpha - 30th May 2016
+
+- Fix rebooting bug (Was a mismerge)
+- Improved overall performance & code quality (system_core)
+- Removed stock browser and added XOS Browser
+- Cleaned some code in sysinit
+- Upstreamed old stuff
+- Added fake signature enforcement (Enabled from Developer settings)
+- Enable/Disable searchbar in recents app menu
+- Enable/Disable Lockscreen visualiser
+- Double tap status bar to sleep
+- Added 0.25x and 0.75x animation transition 
+- Added Advance reboot menu (Enabled/Disabled from Developer settings)
+- Added DPI changer [Needs ROOT]
+- Improved overall responsiveness
+- Moved Lockscreen settings to a separate one (In Display settings)
+- Based on LA.BF64.1.2.2_rb4.39
+
 ### halogenOS - 0.2-alpha - 16th May 2016
 
 - Changed HalogenOS to halogenOS in Settings > About
