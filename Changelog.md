@@ -20,7 +20,7 @@
 - Double tap status bar to sleep
 - Added 0.25x and 0.75x animation transition 
 - Added Advance reboot menu (Enabled/Disabled from Developer settings)
-- Added DPI changer [Needs ROOT]
+- Added DPI changer [Needs ROOT to restart SystemUI]
 - Improved overall responsiveness
 - Moved Lockscreen settings to a separate one (In Display settings)
 - Based on LA.BF64.1.2.2_rb4.39
