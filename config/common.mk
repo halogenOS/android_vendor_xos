@@ -43,6 +43,10 @@ PRODUCT_COPY_FILES += \
     vendor/xos/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
     vendor/xos/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 
+# Specific settings at boot
+PRODUCT_COPY_FILES += \
+	vendor/xos/prebuilt/common/etc/init.d/92xossettings:system/etc/init.d/92xossettings
+
 # Init file
 PRODUCT_COPY_FILES += \
     vendor/xos/prebuilt/common/etc/init.local.rc:root/init.local.rc
