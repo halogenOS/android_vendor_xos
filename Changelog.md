@@ -22,9 +22,6 @@
 - Make bars flat in lockscreen visualizer
 - Working DPI Changer without root
 - Performance improvements
-- GPS & Bluetooth working fine
-- Switched to the new OxygenOS 3 kernel sources (requires the new OOS3 firmware to be installed)
-- Updated to latest blobs
 
 ### halogenOS - v0.3-alpha - 30th May 2016
 
