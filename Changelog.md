@@ -7,6 +7,25 @@
 
 ## The Changelog
 
+### halogenOS - v0.4-alpha - 14th June 2016
+
+- Added crop screenshot feature
+- Completely fleshed out MetricsLogger (Anonymous statistics)
+- Increased battery and performance
+- Added disable HeadsUp feature
+- Added ADB over network feature
+- Moved Launcher3 to /system again
+- Latest CAF release
+- Merged stuff upstream
+- Added softreboot option to reboot menu
+- Added Android ID Changer to Developer options
+- Make bars flat in lockscreen visualizer
+- Working DPI Changer without root
+- Performance improvements
+- GPS & Bluetooth working fine
+- Switched to the new OxygenOS 3 kernel sources (requires the new OOS3 firmware to be installed)
+- Updated to latest blobs
+
 ### halogenOS - v0.3-alpha - 30th May 2016
 
 - Fix rebooting bug (Was a mismerge)
