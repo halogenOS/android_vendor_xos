@@ -30,8 +30,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     BluetoothExt \
     Browser \
-    Eleven \
-    MusicFX \
     Terminal
 
 # Extra Tools and Libraries
