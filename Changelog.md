@@ -7,6 +7,14 @@
 
 ## The Changelog
 
+### halogenOS - v0.1-beta - 3rd July 2016
+
+- Complete rework from scratch
+- Eliminated all of weird bugs
+- Moved to more meaningful ro.xos.* properties from ro.XOS.* 
+- Sync some libraries from CyanogenMod to be up to date always
+- Based on revision LA.BF64.1.2.2_rb4.42 from CAF
+
 ### halogenOS - v0.4-alpha - 14th June 2016
 
 - Added crop screenshot feature
