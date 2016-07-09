@@ -33,6 +33,10 @@ PRODUCT_COPY_FILES += \
     vendor/xos/prebuilt/common/bin/blacklist:system/addon.d/blacklist \
     vendor/xos/prebuilt/common/bin/whitelist:system/addon.d/whitelist \
 
+# Safemode script
+PRODUCT_COPY_FILES += \
+	vendor/xos/prebuilt/common/bin/safemode:system/bin/safemode
+
 # Bootanimation
 PRODUCT_COPY_FILES += \
     vendor/xos/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
