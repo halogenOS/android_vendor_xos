@@ -5,5 +5,4 @@
 # -- DPI
 
 [ -f "/data/xos/settings/dpi.setting" ] && \
-    setprop qemu.sf.lcd_density $(cat /data/xos/settings/dpi.setting) &&
-    wm density $(cat /data/xos/settings/dpi.setting)
+    setprop qemu.sf.lcd_density $(cat /data/xos/settings/dpi.setting)
