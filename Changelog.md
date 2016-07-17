@@ -7,6 +7,23 @@
 
 ## The Changelog
 
+### halogenOS - v0.2-beta - 17th July 2016
+
+- Use new lockscreen visualizer
+    -> Fixes QS bugs
+- Add toggle for heads-up button
+- Add toggle for navigation bar
+- oneplus2: Fix SIM bugs
+- Fix Live Wallpapers
+- Fix XOS version in about section of settings
+- Remove miscellaneous battery usage
+- Remove double twist for camera as it does nothing
+- Move System UI Tuner to Display settings
+- Enable System UI Tuner by default
+- Improve camera
+- Optimizations
+- More improvements and bugfixes
+
 ### halogenOS - v0.1-beta - 3rd July 2016
 
 - Complete rework from scratch
