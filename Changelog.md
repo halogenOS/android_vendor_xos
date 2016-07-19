@@ -7,6 +7,17 @@
 
 ## The Changelog
 
+### halogenOS - v0.3-beta - 19th July 2016
+
+- Fix SystemUI crash at first boot
+- Fix addon.d
+- oneplus2: another try to fix LTE on 2nd SIM
+- oneplus2: tweak interactive governor
+- oneplus2: remove zRAM
+- oneplus2: miscellaneous improvements
+- Improve System Server
+- Improve Package Manager
+
 ### halogenOS - v0.2-beta - 17th July 2016
 
 - Use new lockscreen visualizer
