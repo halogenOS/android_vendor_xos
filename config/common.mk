@@ -28,9 +28,9 @@ endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/xos/prebuilt/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/xos/prebuilt/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/xos/prebuilt/system/addon.d/50-backuptool.sh:system/addon.d/50-backuptool.sh \
+    vendor/xos/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/xos/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/xos/prebuilt/common/addon.d/50-backuptool.sh:system/addon.d/50-backuptool.sh \
     vendor/xos/prebuilt/common/bin/blacklist:system/addon.d/blacklist \
     vendor/xos/prebuilt/common/bin/whitelist:system/addon.d/whitelist \
     
