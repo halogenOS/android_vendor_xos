@@ -7,6 +7,15 @@
 
 ## The Changelog
 
+### halogenOS - v0.3.1-beta - 23rd July 2016
+
+- Fix crash when spamming navbar toggle
+- Add hardware keys toggle (BRAND NEW!)
+- Toggle hardware keys automatically with navbar
+- Improve addon.d
+- oneplus2: ship OOS3 firmware
+- oneplus2: ship OnePlusCamera
+
 ### halogenOS - v0.3-beta - 19th July 2016
 
 - Fix SystemUI crash at first boot
