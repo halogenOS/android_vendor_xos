@@ -7,6 +7,12 @@
 
 ## The Changelog
 
+### halogenOS - new version
+
+- Fix Lockscreen Visualizer not updating color when screen turns on
+- Fix Navbar toggle not switching hw keys properly
+- Improve Lockscreen Visualizer
+
 ### halogenOS - v0.3.1-beta - 23rd July 2016
 
 - Fix crash when spamming navbar toggle
