@@ -19,6 +19,7 @@
 - New: handle button backlight on navbar/hw keys toggle
 - Improve Lockscreen Visualizer
 - Improve HeadsUp setting
+- Add spanish translations
 - oneplus2: improve audio quality
 - oneplus2: update audio-related sources
 - oneplus2: make soundmods 100% compatible
