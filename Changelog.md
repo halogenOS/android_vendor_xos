@@ -7,13 +7,24 @@
 
 ## The Changelog
 
-### halogenOS - new version
+### halogenOS - upcoming version: 0.4-beta
 
+- Update CAF mainline
+- Merge CAF upstream
+- Merge all security patches, including 2016-08-05
+- Fix possible QS bugs
 - Fix Lockscreen Visualizer not updating color when screen turns on
 - Fix Navbar toggle not switching hw keys properly
 - New: handle button backlight on navbar/hw keys toggle
 - Improve Lockscreen Visualizer
 - Improve HeadsUp setting
+- oneplus2: improve audio quality
+- oneplus2: update audio-related sources
+- oneplus2: make soundmods 100% compatible
+- oneplus2: fix possible Lockscreen Visualizer bug with some music players
+- oneplus2: merge kernel security patches
+- oneplus2: disable access time (=noatime) on /system, /data and /cache
+            -> more I/O performance, less write cycles
 
 ### halogenOS - v0.3.1-beta - 23rd July 2016
 
