@@ -12,6 +12,7 @@
 - Update CAF mainline
 - Merge CAF upstream
 - Merge all security patches, including 2016-08-05
+- Update halogenOS Keyboard
 - Fix possible QS bugs
 - Fix Lockscreen Visualizer not updating color when screen turns on
 - Fix Navbar toggle not switching hw keys properly
@@ -25,6 +26,7 @@
 - oneplus2: merge kernel security patches
 - oneplus2: disable access time (=noatime) on /system, /data and /cache
             -> more I/O performance, less write cycles
+- oneplus2: update kernel sources and merge security patches
 
 ### halogenOS - v0.3.1-beta - 23rd July 2016
 
