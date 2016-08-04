@@ -33,7 +33,7 @@ PRODUCT_COPY_FILES += \
     vendor/xos/prebuilt/common/addon.d/50-backuptool.sh:system/addon.d/50-backuptool.sh \
     vendor/xos/prebuilt/common/bin/blacklist:system/addon.d/blacklist \
     vendor/xos/prebuilt/common/bin/whitelist:system/addon.d/whitelist \
-    
+
 # Safemode script
 PRODUCT_COPY_FILES += \
 	vendor/xos/prebuilt/common/bin/safemode:system/bin/safemode
@@ -125,5 +125,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
     ro.xos.version=$(XOS_VERSION_NUMBER) \
     ro.mod.version=$(XOS_BUILD_TYPE)-v$(XOS_VERSION_NUMBER) \
-    
+
 $(call inherit-product-if-exists, vendor/extra/product.mk)
