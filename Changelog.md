@@ -7,7 +7,7 @@
 
 ## The Changelog
 
-### halogenOS - upcoming version: 0.4-beta
+### halogenOS - upcoming version: 0.4-beta - ETA: 2016/08/06-08
 
 - Update CAF mainline
 - Merge CAF upstream
@@ -16,6 +16,7 @@
 - Fix possible QS bugs
 - Fix Lockscreen Visualizer not updating color when screen turns on
 - Fix Navbar toggle not switching hw keys properly
+- Fix BusyBox symlinks
 - New: handle button backlight on navbar/hw keys toggle
 - Improve Lockscreen Visualizer
 - Improve HeadsUp setting
