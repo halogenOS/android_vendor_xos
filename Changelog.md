@@ -7,7 +7,7 @@
 
 ## The Changelog
 
-### halogenOS - upcoming version: 0.4-beta - ETA: 2016/08/06-08
+### halogenOS - v0.4-beta - 7th August 2016
 
 - Update CAF mainline
 - Merge CAF upstream
@@ -29,6 +29,7 @@
 - oneplus2: disable access time (=noatime) on /system, /data and /cache
             -> more I/O performance, less write cycles
 - oneplus2: update kernel sources and merge security patches
+- oneplus2: enable all cores on boot
 
 ### halogenOS - v0.3.1-beta - 23rd July 2016
 
