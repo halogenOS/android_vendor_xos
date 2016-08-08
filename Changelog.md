@@ -7,6 +7,10 @@
 
 ## The Changelog
 
+### halogenOS - upcoming version
+
+- oneplus2: improve battery life by reverting a bad commit which ramps the CPU freq up
+
 ### halogenOS - v0.4-beta - 7th August 2016
 
 - Update CAF mainline
@@ -30,7 +34,6 @@
             -> more I/O performance, less write cycles
 - oneplus2: update kernel sources and merge security patches
 - oneplus2: enable all cores on boot
-- oneplus2: revert commit [285d46b](https://github.com/halogenOS/android_device_oneplus_oneplus2/commit/22be3c5709f40ef8c43d3ef454261f63eb7b2fb4) to tame minfreq of little cluster and improve screen-on time
 
 ### halogenOS - v0.3.1-beta - 23rd July 2016
 
