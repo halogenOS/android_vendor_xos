@@ -9,6 +9,7 @@
 
 ### halogenOS - upcoming version
 
+- oneplus2: merge some new (QuadRooter) security patches into kernel
 - oneplus2: improve battery life by reverting a bad commit which ramps the CPU freq up
 - oneplus2: GPS improvements
 - oneplus2: battery improvements
