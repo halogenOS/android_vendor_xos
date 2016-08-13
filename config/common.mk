@@ -118,7 +118,7 @@ else
 endif
 
 ifneq ($(TARGET_UNOFFICIAL_BUILD_ID),)
-    XOS_BUILD_TYPE := "-$(TARGET_UNOFFICIAL_BUILD_ID)" 
+    XOS_BUILD_TYPE :="_$(TARGET_UNOFFICIAL_BUILD_ID)" 
 endif
 
 # Set all versions
