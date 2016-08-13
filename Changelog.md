@@ -10,6 +10,10 @@
 ### halogenOS - upcoming version
 
 - oneplus2: improve battery life by reverting a bad commit which ramps the CPU freq up
+- oneplus2: GPS improvements
+- oneplus2: battery improvements
+- oneplus2: performance improvements
+- oneplus2: other hardware-related improvements
 
 ### halogenOS - v0.4-beta - 7th August 2016
 
