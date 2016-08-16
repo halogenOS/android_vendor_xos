@@ -9,6 +9,8 @@
 
 ### halogenOS - upcoming version
 
+- NEW: add support for custom min/max fling velocities using build.prop
+- oneplus2: adjust fling velocities for better responsiveness without side effects
 - oneplus2: merge some new (QuadRooter) security patches into kernel
 - oneplus2: improve battery life by reverting a bad commit which ramps the CPU freq up
 - oneplus2: GPS improvements
