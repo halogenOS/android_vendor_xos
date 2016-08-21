@@ -7,9 +7,10 @@
 
 ## The Changelog
 
-### halogenOS - upcoming version
+### halogenOS - v0.4.1-beta - 21st August 2016
 
 - NEW: add support for custom min/max fling velocities using build.prop
+- Fix layout & colors for some dialogs like Android ID Changer
 - oneplus2: adjust fling velocities for better responsiveness without side effects
 - oneplus2: merge some new (QuadRooter) security patches into kernel
 - oneplus2: improve battery life by reverting a bad commit which ramps the CPU freq up
@@ -17,6 +18,7 @@
 - oneplus2: battery improvements
 - oneplus2: performance improvements
 - oneplus2: other hardware-related improvements
+- Other minor changes, improvements and bugfixes
 
 ### halogenOS - v0.4-beta - 7th August 2016
 
