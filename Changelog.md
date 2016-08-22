@@ -7,6 +7,9 @@
 
 ## The Changelog
 
+### halogenOS - upcoming version
+- Fix more layout & colors for some dialogs like Android ID Changer
+
 ### halogenOS - v0.4.1-beta - 21st August 2016
 
 - NEW: add support for custom min/max fling velocities using build.prop
