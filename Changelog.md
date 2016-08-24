@@ -11,6 +11,7 @@
 
 - Fix more layout & colors for some dialogs like Android ID Changer
 - oneplus2: battery improvements
+- oneplus2: other improvements
 
 ### halogenOS - v0.4.1-beta - 21st August 2016
 
