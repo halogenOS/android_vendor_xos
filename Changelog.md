@@ -7,7 +7,7 @@
 
 ## The Changelog
 
-### halogenOS - upcoming version
+### halogenOS - v0.4.2-beta - upcoming version
 
 - Fix more layout & colors for some dialogs like Android ID Changer
 - oneplus2: battery improvements
