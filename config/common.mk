@@ -102,6 +102,9 @@ ifneq ($(TARGET_BUILD_VARIANT),eng)
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
 
+# Recommend using the non debug dexpreopter
+USE_DEX2OAT_DEBUG ?= false
+
 # Additional packages
 -include vendor/xos/config/packages.mk
 
