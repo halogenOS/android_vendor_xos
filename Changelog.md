@@ -1,11 +1,22 @@
-# halogenOS - Marshmallow (6.x)
+# halogenOS 7.0 - Nougat
 
-- Source: http://github.com/halogenOS
+- Source: https://gitlab.com/halogenOS and https://github.com/halogenOS
 - Telegram: https://telegram.me/halogenOS
 - Google+: https://plus.google.com/communities/112558957026294677782
-- For extended changelog, track Github commits
+- For extended changelog, track our git commits
 
-## The Changelog
+# The Changelog
+
+## halogenOS 7.0
+
+## halogenOS - upcoming version
+
+- First Nougat release
+
+
+## halogenOS 6.0
+
+Development of XOS-6.0 is now **frozen**.
 
 ### halogenOS - v0.4.2-beta - upcoming version
 

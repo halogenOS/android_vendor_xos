@@ -105,12 +105,12 @@ endif
 -include vendor/xos/config/packages.mk
 
 # Versioning
-ANDROID_VERSION = 6.0.1
+ANDROID_VERSION = 7.0
 ifndef XOS_BUILD_TYPE
     XOS_BUILD_TYPE := beta
     PLATFORM_VERSION_CODENAME := beta
 endif
-XOS_VER := 0.4.1
+XOS_VER := 0.5
 ifdef XOS_BUILD_TYPE
     XOS_VERSION_NUMBER = $(XOS_VER)-$(XOS_BUILD_TYPE)
 else
