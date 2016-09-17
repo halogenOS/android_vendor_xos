@@ -45,6 +45,7 @@ endif
 
 # Optional packages
 PRODUCT_PACKAGES += \
+    libbthost_if \
     BluetoothExt \
     Browser \
     Terminal
