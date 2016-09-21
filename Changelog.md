@@ -7,6 +7,11 @@
 
 ## The Changelog
 
+
+## halogenOS 6.0
+
+Development of XOS-6.0 is now **frozen**.
+
 ### halogenOS - v0.4.2-beta - upcoming version
 
 - Fix more layout & colors for some dialogs like Android ID Changer
