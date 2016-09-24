@@ -125,3 +125,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.mod.revisions=$(THE_REVISIONS)
 
 $(call inherit-product-if-exists, vendor/extra/product.mk)
+
+# include definitions for SDCLANG
+include vendor/xos/sdclang/sdclang.mk
