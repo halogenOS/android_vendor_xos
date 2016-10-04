@@ -15,7 +15,7 @@ PRODUCT_PACKAGES += \
     Stk \
     telephony-ext
 
-PRODUCT_BOOT_JARS += \
+PRODUCT_BOOT_JARS_NOPREOPT += \
     telephony-ext
 
 #RCS //Needed for Contacts and Mms Apps
