@@ -30,6 +30,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SoundRecorder
 
+# DASH technology and QCMediaPlayer
+ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS),true)
+	PRODUCT_PACKAGES += \
+		libdashplayer \
+		qcmediaplayer
+	
+	PRODUCT_BOOT_JARS += \
+		qcmediaplayer
+endif
+
 # Optional packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
