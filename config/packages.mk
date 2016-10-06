@@ -33,11 +33,14 @@ PRODUCT_PACKAGES += \
 # DASH technology and QCMediaPlayer
 ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS),true)
 	PRODUCT_PACKAGES += \
-		libdashplayer \
-		qcmediaplayer
-	
-	PRODUCT_BOOT_JARS += \
-		qcmediaplayer
+		libdashplayer
+	ifeq ($(TARGET_ENABLE_QC_MEDIAPLAYER),true)
+		PRODUCT_PACKAGES += \
+			qcmediaplayer
+		
+		PRODUCT_BOOT_JARS += \
+			qcmediaplayer
+	endif
 endif
 
 # Optional packages
