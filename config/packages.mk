@@ -77,3 +77,11 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
 	Snap
+
+# Media
+PRODUCT_PACKAGES += \
+	libavcodec \
+	libavutil \
+	libswscale \
+	libswresample
+	
