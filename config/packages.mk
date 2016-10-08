@@ -73,3 +73,7 @@ PRODUCT_PACKAGES += \
     oprofiled \
     sqlite3 \
     strace
+
+# Camera
+PRODUCT_PACKAGES += \
+	Snap
