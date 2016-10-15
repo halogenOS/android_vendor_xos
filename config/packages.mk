@@ -86,5 +86,9 @@ PRODUCT_PACKAGES += \
 	libswscale \
 	libswresample
 
+# OMS
+PRODUCT_PACKAGES += \
+masquerade
+
 include vendor/xos/config/essentials.mk
 	
