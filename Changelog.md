@@ -9,6 +9,9 @@
 
 ## halogenOS 7.0
 
-## halogenOS - upcoming version
+## halogenOS - 0.5-beta - 2016/10/23
 
 - First Nougat release
+- Based on LA.BF64.1.2.3_rb1.4
+
+Note: in future releases we may stop using incremental versions.
