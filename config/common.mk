@@ -108,6 +108,8 @@ endif
 ANDROID_VERSION = 7.0
 PLATFORM_VERSION_CODENAME = REL
 
+CAF_REVISION := LA.BF64.1.2.3_rb1.5
+
 XOS_BUILD_DATE := $(shell date +%Y%m%d)
 
 # Set all versions
