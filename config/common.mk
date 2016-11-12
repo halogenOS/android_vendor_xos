@@ -46,12 +46,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/xos/prebuilt/common/bin/sysinit:system/bin/sysinit \
     vendor/xos/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/xos/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit \
-    vendor/xos/prebuilt/common/etc/init.d/01safemode:system/etc/init.d/01safemode
+    vendor/xos/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+    
+# xosinit.d
+PRODUCT_COPY_FILES += \
+    vendor/xos/prebuilt/common/etc/xosinit.d/01safemode:system/etc/xosinit.d/01safemode
 
 # Specific settings at boot
 PRODUCT_COPY_FILES += \
-	vendor/xos/prebuilt/common/etc/init.d/92xossettings:system/etc/init.d/92xossettings
+	vendor/xos/prebuilt/common/etc/xosinit.d/92xossettings:system/etc/xosinit.d/92xossettings
 
 # Init file
 PRODUCT_COPY_FILES += \
