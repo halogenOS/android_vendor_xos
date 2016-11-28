@@ -9,6 +9,23 @@
 
 ## halogenOS 7.0
 
+## halogenOS - 2016/11/28
+
+- CAF revision LA.BF64.1.2.3_rb1.6
+- Modern Services
+- Disable dropbox toggle
+- Improvements in brightness slider in QS
+- Navigation bar fixes
+- Charging LED color change
+- Battery improvements
+- Remove some old-style status bar icons
+- XOS Browser update
+- Use '-v tag' for logcat by default (instead of threadtime)
+- Support for transparent notifications
+- Update device info in settings
+- Optimizations, improvements and bugfixes
+- oneplus2: compiled with UBER
+
 ## halogenOS - 2016/11/20
 
 - CAF revision LA.BF64.1.2.3_rb1.5
