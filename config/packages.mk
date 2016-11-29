@@ -90,5 +90,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 masquerade
 
+# File Manager
+PRODUCT_PACKAGES += \
+	CMFileManager
+
 include vendor/xos/config/essentials.mk
 	
