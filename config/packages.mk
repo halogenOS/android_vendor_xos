@@ -90,5 +90,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 masquerade
 
+# Bash
+PRODUCT_PACKAGES += bash
+
+# GNU Nano
+PRODUCT_PACKAGES += \
+	nano \
+	libncurses
+
 include vendor/xos/config/essentials.mk
 	
