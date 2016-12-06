@@ -9,6 +9,41 @@
 
 ## halogenOS 7.0
 
+## halogenOS - 2016/12/06
+
+- Improvements in smoothness and responsiveness
+- Camera shutter sound toggle
+- Some telephony & telecommunication improvements and fixes
+- Updated Masquerade for Substratum
+- OMS updates
+- Turn on Power Notification Controls by default
+- Fix multiple APN setting items issue
+- Some italian translations
+- Add Bash and GNU Nano
+- Remove more old-style status bar icons
+- Update device info in settings
+- Little clean-up
+- Optimizations
+- Bugfixes & improvements
+- oneplus2: Faux Sound Control
+- oneplus2: Speaker & Mic gain improvement
+- oneplus2: SIO & FIOPS I/O scheduler (SIO as default)
+- oneplus2: htcp TCP Congestion Algorithm (now default)
+- oneplus2: MSM Hotplug (recommended & optimized settings applied by default) -> Less power consumption
+- oneplus2: 64K TCP window size (faster network speed)
+- oneplus2: Some fixes & improvements by @andip71 (Lord Boeffla)
+- oneplus2: Audio improvements
+- oneplus2: Fix tearing on screen
+- oneplus2: Back to SuperSU support (2.78 SR5 and newer!!!)
+- oneplus2: Power optimizations
+- oneplus2: Battery improvements
+- oneplus2: Get rid of some logspam
+- oneplus2: UBERTC & -O3 (please tell us if you have recommendations related to this)
+- oneplus2: Add 27 MHz step for GPU
+- oneplus2: FSync on/off support
+- oneplus2: Performance & efficiency improvements
+- oneplus2: Other improvements
+
 ## halogenOS - 2016/11/28
 
 - CAF revision LA.BF64.1.2.3_rb1.6
