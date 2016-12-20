@@ -37,7 +37,7 @@ ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS),true)
 	ifeq ($(TARGET_ENABLE_QC_MEDIAPLAYER),true)
 		PRODUCT_PACKAGES += \
 			qcmediaplayer
-		
+
 		PRODUCT_BOOT_JARS += \
 			qcmediaplayer
 	endif
@@ -99,4 +99,4 @@ PRODUCT_PACKAGES += \
 	libncurses
 
 include vendor/xos/config/essentials.mk
-	
+

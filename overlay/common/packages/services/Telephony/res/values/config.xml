@@ -14,7 +14,7 @@
 <!-- Phone app resources that may need to be customized
      for different hardware or product builds. -->
 <resources>
-    
+
     <!-- Show enabled lte option for lte device -->
     <bool name="config_enabled_lte" translatable="false">true</bool>
 

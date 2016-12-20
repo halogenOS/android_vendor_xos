@@ -1925,7 +1925,7 @@
   <apn carrier="Jio Internet" mcc="405" mnc="858" apn="jionet" type="default" protocol="IPV4V6" roaming_protocol="IPV4V6" />
   <apn carrier="Jio Internet" mcc="405" mnc="859" apn="jionet" type="default" protocol="IPV4V6" roaming_protocol="IPV4V6" />
   <apn carrier="Jio Internet" mcc="405" mnc="860" apn="jionet" type="default" protocol="IPV4V6" roaming_protocol="IPV4V6" />
-  <apn carrier="Jio Internet" mcc="405" mnc="861" apn="jionet" type="default" protocol="IPV4V6" roaming_protocol="IPV4V6" /> 
+  <apn carrier="Jio Internet" mcc="405" mnc="861" apn="jionet" type="default" protocol="IPV4V6" roaming_protocol="IPV4V6" />
   <apn carrier="Jio Internet" mcc="405" mnc="862" apn="jionet" type="default" protocol="IPV4V6" roaming_protocol="IPV4V6" />
   <apn carrier="Jio Internet" mcc="405" mnc="863" apn="jionet" type="default" protocol="IPV4V6" roaming_protocol="IPV4V6" />
   <apn carrier="Jio Internet" mcc="405" mnc="864" apn="jionet" type="default" protocol="IPV4V6" roaming_protocol="IPV4V6" />
