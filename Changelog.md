@@ -11,6 +11,8 @@
 
 ## halogenOS 7.0
 
+## halogenOS - Upcoming release planned for 2016/12/23
+
 ## halogenOS - 2016/12/06
 
 - Improvements in smoothness and responsiveness
