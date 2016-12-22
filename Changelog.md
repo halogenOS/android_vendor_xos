@@ -11,7 +11,31 @@
 
 ## halogenOS 7.0
 
-## halogenOS - Upcoming release planned for 2016/12/23
+## halogenOS - 2016/12/23
+
+- Fix huge battery drain
+- Huge optimizations
+- ART optimizations
+- Added more QS tiles
+- Remove AM/PM from lockscreen
+- Fixed issues with SystemUI Tuner
+- Add some national roaming configs
+- Add 0.8x animation scale
+- Improvements in Modern Services
+- Fixes & improvements
+- oneplus2: kernel CAF upstream merges
+- oneplus2: kernel security patches
+- oneplus2: kernel fixes
+- oneplus2: add Adreno idler with optimized default settings
+- oneplus2: GPS update
+- oneplus2: more optimizations
+- jalebi:   Initial relase!
+- jalebi:   Updated cam from CAF sources
+- jalebi:   Strip out IMS services
+- jalebi:   Kill YUDoze
+- jalebi:   Add custom off-mode charging screen
+- jalebi:   Fix late connecting RIL
+- jalebi:   Update to bullhead WideVine blobs
 
 ## halogenOS - 2016/12/06
 
