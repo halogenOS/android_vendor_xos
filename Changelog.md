@@ -1,6 +1,7 @@
 # halogenOS 7.0 - Nougat
 
 - Source: https://github.com/halogenOS
+- Gerrit: https://review.halogenos.org
 - Telegram: https://telegram.me/halogenOS
 - Google+: https://plus.google.com/communities/112558957026294677782
 - For extended changelog, track our git commits
