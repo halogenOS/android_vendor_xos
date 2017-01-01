@@ -88,7 +88,8 @@ PRODUCT_PACKAGES += \
 
 # OMS
 PRODUCT_PACKAGES += \
-masquerade
+       masquerade \
+       projekt.substratum.theme.xml
 
 # Bash
 PRODUCT_PACKAGES += bash
