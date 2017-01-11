@@ -11,6 +11,30 @@
 
 ## halogenOS 7.0
 
+## halogenOS - 2017/01/11
+
+- Fix some more battery drains
+- Add status bar notification counters
+- Add Caffeine tile
+- Add some other QS tiles
+- Italian translations
+- Russian translations
+- Improvements & fixes
+- oneplus2: remove some unnecessary things from ramdisk
+- oneplus2: improve our MSM Hotplug default settings
+- oneplus2: some telephony additions, especially for VoLTE and MMS
+- oneplus2: kernel optimization
+- oneplus2: completely get rid of zram
+- oneplus2: better adreno idler settings
+- oneplus2: add backlight dimmer
+- oneplus2: some other changes
+- jalebi:   Bring up-to-date with all LineageOS fixes
+- jalebi:   Add full F2FS support for /data and /cache
+- jalebi:   Update stock kernel to LA.BR.1.2.9\_rb1.10
+- jalebi:   Add sdcardfs support to kernel
+- jalebi:   Add in adreno idler with optimisations from [@dev\_harsh1998](https://github.com/dev_harsh1998)
+- jalebi:   Completely eliminate VoLTE bits from sources
+
 ## halogenOS - 2016/12/23
 
 - Fix huge battery drain
