@@ -109,10 +109,10 @@ USE_DEX2OAT_DEBUG ?= false
 -include vendor/xos/config/packages.mk
 
 # Versioning
-ANDROID_VERSION = 7.0
+ANDROID_VERSION = 7.1.1
 PLATFORM_VERSION_CODENAME = REL
 
-CAF_REVISION := LA.BF64.1.2.3_rb1.6
+CAF_REVISION := LA.BF64.1.2.3_rb1.8
 
 XOS_BUILD_DATE := $(shell date +%Y%m%d)
 
