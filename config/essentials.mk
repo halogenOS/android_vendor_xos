@@ -9,4 +9,7 @@ PRODUCT_PACKAGES += \
 	libffmpeg_omx \
 	libffmpeg_utils \
 	libjni_eglfence \
-	libjni_jpegstream
+	libjni_jpegstream \
+	libprotobuf-cpp-full \
+	librsjni \
+	media_codecs_ffmpeg.xml
