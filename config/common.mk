@@ -30,7 +30,7 @@ PRODUCT_COPY_FILES += \
     vendor/xos/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
     vendor/xos/prebuilt/common/addon.d/50-backuptool.sh:system/addon.d/50-backuptool.sh \
     vendor/xos/prebuilt/common/bin/blacklist:system/addon.d/blacklist \
-    vendor/xos/prebuilt/common/bin/whitelist:system/addon.d/whitelist
+    vendor/xos/prebuilt/common/bin/whitelist:system/addon.d/whitelist \
 
 # Safemode script
 PRODUCT_COPY_FILES += \
@@ -70,6 +70,10 @@ PRODUCT_COPY_FILES += \
 # Enable wireless Xbox 360 controller support
 PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
+
+# World APN list
+PRODUCT_COPY_FILES += \
+    vendor/xos/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # Selective SPN list for operator number who has the problem.
 PRODUCT_COPY_FILES += \
