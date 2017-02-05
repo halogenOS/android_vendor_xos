@@ -12,6 +12,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=false \
     ro.build.selinux=1
 
+ifeq ($(SENSORS_PREVENT_SIGNIFICANT_MOTION_WAKE),true)
+PRODUCT_PROPERTY_OVERRIDES += sensor.sm.force.nowakeup=1
+endif
+
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
