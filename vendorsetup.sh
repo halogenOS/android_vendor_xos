@@ -1,1 +1,3 @@
-for device in $(cat "$ANDROID_BUILD_TOP"/vendor/xos/xos.devices); do add_lunch_combo XOS_"$device"-userdebug; done
+while read device; do
+  add_lunch_combo XOS_$device-userdebug
+done < $ANDROID_BUILD_TOP/vendor/xos/xos.devices
