@@ -116,7 +116,7 @@ USE_DEX2OAT_DEBUG ?= false
 ANDROID_VERSION = 7.1.1
 PLATFORM_VERSION_CODENAME = REL
 
-CAF_REVISION := LA.UM.5.6.r1-02900-89xx.0
+THE_REVISIONS := LA.UM.5.6.r1-03400-89xx.0
 
 XOS_BUILD_DATE := $(shell date +%Y%m%d)
 
@@ -128,6 +128,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
     ro.xos.version=$(XOS_BUILD_DATE) \
     ro.mod.version=$(XOS_MOD_VERSION) \
-    ro.caf.branch=$(CAF_REVISION)
+    ro.mod.revisions=$(THE_REVISIONS)
 
 $(call inherit-product-if-exists, vendor/extra/product.mk)
