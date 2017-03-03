@@ -1,9 +1,11 @@
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
+PRODUCT_GMS_CLIENTID_BASE ?= android-google
+
 # General Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true \
-    ro.com.google.clientidbase=android-google \
+    ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE) \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
     ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
     ro.com.android.wifi-watchlist=GoogleGuest \
