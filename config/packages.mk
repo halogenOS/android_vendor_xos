@@ -98,5 +98,9 @@ PRODUCT_PACKAGES += \
 	nano \
 	libncurses
 
+#OTA
+PRODUCT_PACKAGES += \
+        OTAUpdates
+
 include vendor/xos/config/essentials.mk
 
