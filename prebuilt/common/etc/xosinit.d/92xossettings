@@ -1,9 +1,0 @@
-#!/system/bin/sh
-
-# Apply specific settings on boot
-
-# -- DPI
-
-[ -f "/data/xos/settings/dpi.setting" ] && \
-    setprop qemu.sf.lcd_density $(cat /data/xos/settings/dpi.setting)
-
