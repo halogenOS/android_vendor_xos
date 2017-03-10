@@ -48,7 +48,8 @@ PRODUCT_PACKAGES += \
     libbthost_if \
     BluetoothExt \
     Browser \
-    Terminal
+    Terminal \
+    ExactCalculator
 
 # Extra Tools and Libraries
 PRODUCT_PACKAGES += \
