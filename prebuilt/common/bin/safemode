@@ -1,0 +1,11 @@
+#!/system/bin/sh
+#
+# Script to restart the system into safe mode
+
+echo "Restarting into safe mode..."
+setprop persist.sys.safemode 1
+setprop persist.sw.safemode 1
+echo "1" > /data/property/persist.sys.safemode
+echo "1" > /data/property/persist.sw.safemode
+touch /data/xos/safemode
+reboot
