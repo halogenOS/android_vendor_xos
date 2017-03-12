@@ -98,10 +98,10 @@ endif
 # by default, do not update the recovery with system updates
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
 
-# Make adb unsecured for non user builds
-ifneq ($(TARGET_BUILD_VARIANT),user)
+# Make adb secured for non eng builds
+ifneq ($(TARGET_BUILD_VARIANT),eng)
 # Enable ADB authentication
-ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
+ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
 
 # Recommend using the non debug dexpreopter
