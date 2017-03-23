@@ -36,6 +36,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	vendor/xos/prebuilt/common/bin/safemode:system/bin/safemode
 
+# System feature whitelists
+PRODUCT_COPY_FILES += \
+    vendor/xos/prebuilt/common/etc/sysconfig/power-whitelist.xml:system/etc/sysconfig/power-whitelist.xml
+
 # Bootanimation
 PRODUCT_COPY_FILES += \
     vendor/xos/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
