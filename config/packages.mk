@@ -78,7 +78,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-	Snap
+	SnapdragonCamera
 
 # Media
 PRODUCT_PACKAGES += \
