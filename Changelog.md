@@ -11,6 +11,30 @@
 
 ## halogenOS 7.1
 
+## halogenOS 7.1.1 - OnePlus 2 - 2017/03/25
+
+- Merge upstream from AOSP, CAF and Lineage
+- Fix brightness slider padding
+- Fixup the dialpad button in dialer
+- Improve battery life
+- Add expanded desktop settings
+- Improve One-Hand mode
+- OMS updates
+- Improve OTA (MANY THANKS TO <img src="https://halogenos.org/upload/harsh_shandilya_gold.svg?4">)
+- ART optimizations
+- Additional security patches
+- Many improvements, fixes and optimizations
+- Other miscellaneous changes
+
+OP2-specific:
+- Enable NightLight
+- Enable VoLTE
+- Improve CPU power management and hotplugging, and thus improve battery life
+- Add some optimizations
+- Disable HW disk encryption since it is broken anyways
+- Latest OOS 3.5.8 kernel source
+- Faster USB charging
+
 ## halogenOS 7.1.1 - OnePlus 2 - 2017/02/05
 
 - First 7.1 build
