@@ -1413,7 +1413,7 @@
   <apn carrier="CDMA" mcc="310" mnc="120" apn="1" proxy="" port="" user="" password="" mmsc="http://mms.sprintpcs.com" type="default,supl" />
   <apn carrier="USCC" mcc="310" mnc="120" apn="internet" proxy="" port="80" user="" password="" mmsc="http://mmsc1.uscc.net/mmsc/MMS" mmsproxy="" mmsport="80" authtype="3" type="mms" />
   <apn carrier="My Multi Media" mcc="310" mnc="130" apn="mms.c1.ama" proxy="" port="" user="cell1mms" password="cell1" mmsc="http://mms.iot1.com/amarillo/mms.php" type="mms" />
-  <apn carrier="Cricket" mcc="310" mnc="16" apn="wap.mycricket.com" user="@mycricket.com" password="cricket" mmsc="http://mms.mycricket.com/servlets/mms" proxy="wap.mycricket.com" port="8080" authtype="2" type="*" />
+  <apn carrier="Cricket" mcc="310" mnc="16" apn="wap.mycricket.com" user="\@mycricket.com" password="cricket" mmsc="http://mms.mycricket.com/servlets/mms" proxy="wap.mycricket.com" port="8080" authtype="2" type="*" />
   <apn carrier="Cricket AIO" mcc="310" mnc="150" apn="ndo" mmsc="http://mmsc.aiowireless.net" mmsproxy="proxy.aiowireless.net" mmsport="80" type="default,mms,fota,hipri,supl" />
   <apn carrier="ATT WAP" mcc="310" mnc="170" apn="wap.cingular" proxy="wireless.cingular.com" port="80" mmsc="http://mmsc.cingular.com" mmsproxy="wireless.cingular.com" mmsport="80" type="default,mms" />
   <apn carrier="ATT Broadband" mcc="310" mnc="170" apn="Broadband" type="default,supl" />
@@ -2915,7 +2915,7 @@
   <apn carrier="MTS Internet" mcc="434" mnc="07" apn="net.mts.uz" user="mts" password="mts" authtype="1" type="default,supl" />
   <apn carrier="MTS MMS" mcc="434" mnc="07" apn="mms.mts.uz" proxy="" port="" mmsproxy="10.10.0.10" mmsport="8080" mmsc="http://mmsc/was" user="mts" password="mts" authtype="1" type="mms" />
   <apn carrier="em.std" mcc="440" mnc="00" apn="em.std" user="em" password="em" type="default,supl" bearer="14"/>
-  <apn carrier="@nifty do LTE" mcc="440" mnc="10" apn="lte.fenics.jp" user="nifty@lte.nifty.com" password="nifty" authtype="3" type="default,supl" />
+  <apn carrier="\@nifty do LTE" mcc="440" mnc="10" apn="lte.fenics.jp" user="nifty@lte.nifty.com" password="nifty" authtype="3" type="default,supl" />
   <apn carrier="AsahiNet 3G" mcc="440" mnc="10" apn="3g.mobac.net" user="d@w3.asahinet.jp" password="0000" authtype="3" type="default,supl" />
   <apn carrier="AsahiNet 3G 128K" mcc="440" mnc="10" apn="3g.mobac.net" user="d@x3.asahinet.jp" password="0000" authtype="3" type="default,supl" />
   <apn carrier="AsahiNet LTE" mcc="440" mnc="10" apn="lte.mobac.net" user="d@w.asahinet.jp" password="0000" authtype="3" type="default,supl" />
