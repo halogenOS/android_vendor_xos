@@ -11,6 +11,32 @@
 
 ## halogenOS 7.1
 
+## halogenOS 7.1.1 - OnePlus 2 - 2017/04/02
+
+- Merge CAF upstream
+- Update Keyboard
+- Fix APN
+- Fix some audio issues, especially with games
+- OMS updates
+- Overall improvements (includes efficiency and performance improvements as well as other noticeable changes)
+- Show version info in package installer
+- Pixel navbar bugfixes
+- Add fast scroll to manage apps screen
+- Update Modern Services feature
+- Enable advanced reboot by default
+- Optimizations
+- Miscellaneous changes and bugfixes
+- oneplus2: update blobs to 3.5.8 (VoLTE, new camera stuff, ...)
+- oneplus2: improve battery
+- oneplus2: improve performance
+- oneplus2: autofocus works now with other kernels
+- oneplus2: fix DT2W for some kernels
+- oneplus2: merge kernel upstream
+- oneplus2: Update GPS configuration
+- oneplus2: Fix some selinux denials
+- oneplus2: Enable VoLTE everywhere
+- oneplus2: Enable HW-based encryption again
+
 ## halogenOS 7.1.1 - OnePlus 2 - 2017/03/25
 
 - Merge upstream from AOSP, CAF and Lineage
