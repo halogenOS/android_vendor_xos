@@ -109,7 +109,7 @@ USE_DEX2OAT_DEBUG ?= false
 -include vendor/xos/config/packages.mk
 
 # Versioning
-ANDROID_VERSION = 7.1.1
+ANDROID_VERSION = 7.1.2
 PLATFORM_VERSION_CODENAME = REL
 
 THE_REVISIONS := caf=LA.UM.5.6.r1-04000-89xx.0,droid=android-7.1.1_r26
