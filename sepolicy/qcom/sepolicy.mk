@@ -1,2 +1,1 @@
-BOARD_SEPOLICY_DIRS += \
-    vendor/xos/sepolicy/qcom
+# Nothing to do here... device/qcom/common is da thug.
