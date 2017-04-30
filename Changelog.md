@@ -11,6 +11,79 @@
 
 ## halogenOS 7.1
 
+## halogenOS 7.1.2 - OnePlus 2 - 2017/04/30
+
+- Merge latest LA.UM CAF upstream
+- Merge latest LA.BF64 CAF upstream into selected repos (compatibility etc.)
+- Merge AOSP upstream (7.1.2 r2) including April security patches
+- OMS updates
+- Improve fingerprint sensor recognition speed
+- Add national roaming for Play in Poland on carriers T-Mobile, Plus and Orange (thanks to Franek)
+- Add other national roaming configs
+- SQLite update
+- Remove some bloat
+- Fix some sepolicy denials
+- HW Key rebinding (yay)
+- Disable settings dashboard suggestions & conditions
+- Rework Button Backlight Control
+- Rework status bar customizations
+- Make #VoLTE preference in settings great again
+- Remove Modern Services (Assistant is already globally available for most devices)
+- Fix wifi display for some devices
+- Overall improvements and fixes to media framework
+- Add NFC tile
+- Add notification tile
+- Add compass tile
+- Pass API check
+- Fix some possible crashes
+- Fix a vulnerability in base frameworks that allows a normal app to crash the system
+- QS Header layout fixes
+- Support header clicks on cellular tile (one-tap on collapsed QS for data enable/disable)
+- SIM fixes
+- Finish notification counters
+- Media ticker fixes
+- More QS changes
+- Cleanups
+- Low-level optimizations
+- Fix camera shutter sound toggle
+- Launcher fixes
+- Make microphone little bit louder
+- Add virtual displays support
+- Sensors improvements
+- Add status bar ticker (can be enabled in settings)
+- Disable immersive messages
+- OTA Updates improvements
+- Use SourceForge as download server now (faster etc.)
+- Fix some APNs
+- Fix vulnerabilities
+- Thanks to our testers (Paul Larsen, Stefan aka TermoZour, Christian, ...) for hell alot of intensive testing
+- Overall improvements, fixes and optimizations
+- oneplus2: make OP2 great again (greater will come), see below
+- oneplus2: SELinux enforcing (yes, ViPER4Android works)
+- oneplus2: Camera HAL 3 (bugs are: portrait thumbnails have green bars, the main picture is fine, RAW pictures are yellow)
+- oneplus2: as part of the HAL 3 bringup, also updated the HAL from CAF upstream and fixed some things
+- oneplus2: regarding HAL 3: thanks to OnePlus for (cough) not (cough) helping
+- oneplus2: super JPEG quality
+- oneplus2: fix GPS (was kinda broken)
+- oneplus2: merge latest kernel upstream
+- oneplus2: merge latest wlan upstream
+- oneplus2: fix fingerprint issues
+- oneplus2: improve battery life while improving performance (efficiency, hotplug improvements)
+- oneplus2: weaken thermal configuration (no throttling on higher temperatures, but will still protect from overheating)
+- oneplus2: latest OP camera
+- oneplus2: faster charging
+- oneplus2: best (?) audio quality
+- oneplus2: GPS updates
+- oneplus2: SDCardFS
+- oneplus2: Doze Pulse (this is essentially ambient display, but a very minimal version)
+- oneplus2: improve WiFi
+- oneplus2: nuke CNE and QtiTetherService (for battery savings. no negative effects found during intensive testing)
+- oneplus2: overall audio updates
+- oneplus2: don't load hcube at all
+- oneplus2: add and enable aptX & aptXHD bluetooth codec
+- oneplus2: media files update
+- oneplus2: RIL improvements
+
 ## halogenOS 7.1.1 - OnePlus 2 - 2017/04/02
 
 - Merge CAF upstream
