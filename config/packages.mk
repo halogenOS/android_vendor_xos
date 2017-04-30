@@ -76,6 +76,13 @@ PRODUCT_PACKAGES += \
     sqlite3 \
     strace
 
+ifneq ($(TARGET_NO_DSPMANAGER), true)
+PRODUCT_PACKAGES += \
+    libcyanogen-dsp \
+    audio_effects.conf \
+    MusicFX
+endif
+
 # Camera
 PRODUCT_PACKAGES += \
 	SnapdragonCamera
