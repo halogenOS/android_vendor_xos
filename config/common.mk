@@ -89,7 +89,12 @@ PRODUCT_COPY_FILES += \
     vendor/xos/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
 else
 PRODUCT_COPY_FILES += \
-    vendor/xos/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
+    vendor/xos/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so \
+	vendor/xos/prebuilt/gapps/arm64/nodpi/app/Chrome/Chrome.apk:system/app/Chrome/Chrome.apk \
+	vendor/xos/prebuilt/gapps/arm64/nodpi/app/LatinImeGoogle/LatinImeGoogle.apk:system/app/LatinImeGoogle/LatinImeGoogle.apk \
+	vendor/xos/prebuilt/gapps/common/lib64/libjni_keyboarddecoder.so:system/lib64/libjni_keyboarddecoder.so \
+	vendor/xos/prebuilt/gapps/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
+	
 endif
 
 # by default, do not update the recovery with system updates
