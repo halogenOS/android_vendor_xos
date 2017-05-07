@@ -11,6 +11,38 @@
 
 ## halogenOS 7.1
 
+## halogenOS 7.1.2 - OnePlus 2 - 2017/05/07
+
+- Merge AOSP upstream (7.1.2 r8) which includes May 05 security patches
+- Address SELinux denials
+- Statusbar clock and date settings
+- Ticker fixes
+- Fix possible telephony-related bugs
+- New boot animation (please give feedback on this on what we could improve)
+- Hotspot tile fixes
+- Fix compass tile not showing icon in edit mode in certain conditions
+- Add screen off action for hw key rebinding
+- Enforce API and boot jars check
+- Reintroduce minimal Modern Services (Assistant etc.)
+- Fix some stuff in OTA updater
+- Disable cache wipes in OTA updater by default (Dalvik is wiped automatically when needed)
+- Some optimizations
+- Fixes here and there
+- Unlink notification volume
+- Other stuff I forgot
+- oneplus2: Rebase kernel on latest CAF tag
+- oneplus2: Merge Linux 3.10.105
+- oneplus2: F2FS update
+- oneplus2: Disable SDCardFS for now (causes some issues)
+- oneplus2: Uber 7.0 for ROM and Linaro 6.3.1 for kernel
+- oneplus2: Fix audio stutter for the most part (we are now using a separate audio hal)
+- oneplus2: Enable boot animation texture cache
+- oneplus2: Use OP3T OnePlus camera (fixes the layout when using different DPI)
+- oneplus2: Improve battery life a little bit
+- oneplus2: Latest wlan module (qcacld-2.0)
+- oneplus2: Fix ViPER4Android driver install
+- oneplus2: Strip down audio effects (some don't do anything, so removed that)
+
 ## halogenOS 7.1.2 - OnePlus 2 - 2017/04/30
 
 - Merge latest LA.UM CAF upstream
