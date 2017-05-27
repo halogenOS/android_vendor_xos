@@ -11,6 +11,60 @@
 
 ## halogenOS 7.1
 
+## halogenOS 7.1.2 - 2017/05/27
+
+- Merge CAF 7.1.2 upstream (LA.UM)
+- Fix MTP
+- Add some dynamic Settings dashboard summaries
+- Add support for AArch32 targets in Vulkan
+- Fixup reboot titles/messages
+- Update Italian translations
+- Update German translations
+- Add screenshot to custom key actions
+- Fix lag when opening an entry from the Settings navigation drawer
+- Add our classes to preloaded classes for faster access
+- Fixup some Navigation Bar / Hardware keys mess
+- Completely get rid of the not even working AOSP system updates (our OTA is used instead)
+- Add detection for more Fucky Snatchers
+- Fix menu hardware key action
+- Telecommunication and Telephony-related fixes and improvements
+- Pick in some fixes and improvements from AOSP including deadlock fixes
+- Improve lockscreen visualizer animations and colors
+- OMS updates
+- Speed up VM startup time by setting the highest RT priority for Zygote
+- Improvements to OTA Updates app
+- Some fixes in Settings app
+- Some improvements to the media framework
+- Cleanup
+- Some more optimizations (oh yeah), improvements and fixes as always
+- oneplus2: Rebase kernel again on CAF
+- oneplus2: Fix (most) heating issues
+- oneplus2: F2FS update
+- oneplus2: SDCardFS update (not enabled yet, will be tested)
+- oneplus2: Fix battery drains caused by kernel
+- oneplus2: Fix ADB device offline issue
+- oneplus2: Remove MSM hotplug since battery life is good without it now
+- oneplus2: OpenGL optimizations
+- oneplus2: Fix audio stutter for some apps like SoundCloud and notification sounds/ringtones
+- oneplus2: Fix sound effects, especially ViPER4Android, for some apps like SoundCloud
+- oneplus2: Use best openly available audio resampler quality (since QTI Resampler is not working yet)
+- oneplus2: Pass SafetyNet check (only without root)
+- oneplus2: Address some SELinux denials
+- oneplus2: Increase output volume for both speaker/headphone (thanks to Kees Sonnema)
+- oneplus2: Add and use maple I/O scheduler by default
+- oneplus2: 100% JPEG quality for camera
+- oneplus2: Reduce green lines in thumbnails for HAL 3
+- oneplus2: Partially fix green lines in thumbnails (some apps still show them)
+- oneplus2: RAW changes (now pictures are red instead of yellow)
+- oneplus2: GPS fixes
+- oneplus2: Improve power mangement
+- oneplus2: Cleanup device tree a little bit
+- oneplus2: Stop blocking significant motion sensor (isn't draining battery now)
+- oneplus2: Kernel fixes
+- oneplus3: Update blobs from new Open Beta
+- oneplus3: Kernel update
+- oneplus3: Device tree update
+
 ## halogenOS 7.1.2 - OnePlus 2 - 2017/05/07
 
 - Merge AOSP upstream (7.1.2 r8) which includes May 05 security patches
