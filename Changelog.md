@@ -11,6 +11,32 @@
 
 ## halogenOS 7.1
 
+## halogenOS 7.1.2 - 2017/06/10
+
+- Merge AOSP upstream (r17) including latest June security patches
+- Merge CAF LA.BF64 upstream into bluetooth repos
+- Remove dynamic navbar colors (as many have requested)
+- One hand mode for hardware keys (use hw key rebinding)
+- Add dashboard summary to SystemUI Tuner
+- Reduce turn off delay for button backlight when turning off the screen
+- Improve battery life
+- Update halogenOS keyboard
+- Some cleanup in the build system
+- Miscellaneous changes including bugfixes and improvements
+- oneplus2: Fix GPS for some people
+- oneplus2: New kernel version 'Powerful Dragon Fruit':
+- oneplus2: Some security patches for kernel
+- oneplus2: haloplug - for better battery life and less heat
+- oneplus2: sepolicy fixes
+- oneplus2: Improve battery life in general
+- oneplus2: Reduce power consumption when using ambient display
+- oneplus2: Update mediacodec performance values.
+- oneplus2: Distribute CPU load a little better
+- oneplus2: Move camera and audio HAL to device tree
+- oneplus2: Other small changes
+- oneplus3: No device-specific changes
+- mido: No device-specific changes
+
 ## halogenOS 7.1.2 - 2017/05/27
 
 - Merge CAF 7.1.2 upstream (LA.UM)
