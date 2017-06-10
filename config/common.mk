@@ -21,9 +21,6 @@ endif
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
-
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/xos/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
