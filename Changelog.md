@@ -11,6 +11,44 @@
 
 ## halogenOS 7.1
 
+## halogenOS 7.1.2 - 2017/06/24
+
+- Merge CAF upstream (LA.UM)
+- New clock customization implementation
+- Battery life improvements
+- Pixel blue theme by default
+- Unlink ringtone/notification volume
+- OMS updates
+- Partial screenshot
+- Improve smoothness
+- Add reset battery stats button
+- Make everything faster
+- New Headsup drawables
+- Many fixes (including from upstream)
+- Use seekbar for setting arbitrary animation values
+- Move battery saver back to the menu
+- Font size in 5% steps from 80% to 130%
+- Fix mess in Ticker and Headsup settings
+- Bring back tap party in device settings
+- Fix some media issues
+- More fixes and improvements as always
+- oneplus2: Fix green lines on thumbnails for HAL 3
+- oneplus2: New haloplug giving even better battery life to performance ratio
+- oneplus2: Improve scrolling a little bit
+- oneplus2: Improve battery life
+- oneplus2: Improve I/O
+- oneplus2: Optimize sensors
+- oneplus2: Fix some issues with video playback
+- oneplus2: Fix QR code app autofocus
+- oneplus2: Improve autofocus in general
+- oneplus2: Fixes in kernel
+- oneplus2: Security patches in kernel
+- oneplus2: Improve stability
+- oneplus2: Update some camera blobs
+- oneplus3: Plz fill
+- mido: No device-specific changes
+- jalebi: Tune power configurations
+
 ## halogenOS 7.1.2 - 2017/06/10
 
 - Merge AOSP upstream (r17) including latest June security patches
