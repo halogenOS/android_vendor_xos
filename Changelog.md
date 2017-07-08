@@ -11,6 +11,40 @@
 
 ## halogenOS 7.1
 
+## halogenOS 7.1.2 - 2017/07/08
+- Merge AOSP upstream (r24) including latest July security patches
+- Add long press volume keys for music track skip feature
+- Fix a SystemUI crash related to clock
+- Many improvements
+- Miscellaneous bugfixes and optimizations
+- OnePlus devices: more Alert Slider modes
+- OnePlus devices: Gestures in new glance
+- oneplus2: Improve graphics performance
+- oneplus2: Improve scrolling smoothness (aka OnePlus 5 without Jelly)
+- oneplus2: Completely new haloplug for much better battery life while keeping good performance
+- oneplus2: New Tweak Panel for device-specific tweaks (currently only haloplug)
+- oneplus2: Improve network stability (aka reduce network drops)
+- oneplus2: Make fingerprint sensor faster
+- oneplus2: Update kernel to Linux 3.10.107
+- oneplus2: Merge CAF kernel upstream
+- oneplus2: OnePlus 5 camera (now you have 2x zoom and all the pro mode features)
+- oneplus2: Audio improvements
+- oneplus2: Overall optimization
+- oneplus2: Improve battery life
+- oneplus2: Fix some other things
+- jalebi: Update adreno blobs from crackling
+- jalebi: Update GPS blobs from crackling
+- jalebi: Update widevine from crackling
+- jalebi: Disable fast dormancy
+- jalebi: Use HTTPS for GPS XTRA servers
+- jalebi: Tune cpusets for better handling of foreground processes
+- jalebi: Nuke ANT+ client
+- jalebi: Remove Adaptive LMK support
+- jalebi: Disable corectl and cpu_boost
+- jalebi: Revive perfd
+- athene: Initial release
+- hammerheadcaf: Few changes to device tree
+
 ## halogenOS 7.1.2 - 2017/06/24
 
 - Merge CAF upstream (LA.UM)
