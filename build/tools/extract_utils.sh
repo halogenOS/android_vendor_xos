@@ -237,8 +237,8 @@ function write_packages() {
         printf 'LOCAL_MODULE_OWNER := %s\n' "$VENDOR"
         if [ "$CLASS" = "SHARED_LIBRARIES" ]; then
             if [ "$EXTRA" = "both" ]; then
-                printf 'LOCAL_SRC_FILES_64 := proprietary/%s/lib64/%s\n' "$SRC" "$FILE"
-                printf 'LOCAL_SRC_FILES_32 := proprietary/%s/lib/%s\n' "$SRC" "$FILE"
+                printf 'LOCAL_SRC_FILES_64 := %s/lib64/%s\n' "$SRC" "$FILE"
+                printf 'LOCAL_SRC_FILES_32 := %s/lib/%s\n' "$SRC" "$FILE"
                 #if [ "$VENDOR_PKG" = "true" ]; then
                 #    echo "LOCAL_MODULE_PATH_64 := \$(TARGET_OUT_VENDOR_SHARED_LIBRARIES)"
                 #    echo "LOCAL_MODULE_PATH_32 := \$(2ND_TARGET_OUT_VENDOR_SHARED_LIBRARIES)"
@@ -247,9 +247,9 @@ function write_packages() {
                 #    echo "LOCAL_MODULE_PATH_32 := \$(2ND_TARGET_OUT_SHARED_LIBRARIES)"
                 #fi
             elif [ "$EXTRA" = "64" ]; then
-                printf 'LOCAL_SRC_FILES := proprietary/%s/lib64/%s\n' "$SRC" "$FILE"
+                printf 'LOCAL_SRC_FILES := %s/lib64/%s\n' "$SRC" "$FILE"
             else
-                printf 'LOCAL_SRC_FILES := proprietary/%s/lib/%s\n' "$SRC" "$FILE"
+                printf 'LOCAL_SRC_FILES := %s/lib/%s\n' "$SRC" "$FILE"
             fi
             if [ ! -z "$EXTRA" ]; then
                 printf 'LOCAL_MULTILIB := %s\n' "$EXTRA"
@@ -262,21 +262,21 @@ function write_packages() {
                     SRC="$SRC/app"
                 fi
             fi
-            printf 'LOCAL_SRC_FILES := proprietary/%s/%s\n' "$SRC" "$FILE"
+            printf 'LOCAL_SRC_FILES := %s/%s\n' "$SRC" "$FILE"
             local CERT=platform
             if [ ! -z "$ARGS" ]; then
                 CERT="$ARGS"
             fi
             printf 'LOCAL_CERTIFICATE := %s\n' "$CERT"
         elif [ "$CLASS" = "JAVA_LIBRARIES" ]; then
-            printf 'LOCAL_SRC_FILES := proprietary/%s/framework/%s\n' "$SRC" "$FILE"
+            printf 'LOCAL_SRC_FILES := %s/framework/%s\n' "$SRC" "$FILE"
             local CERT=platform
             if [ ! -z "$ARGS" ]; then
                 CERT="$ARGS"
             fi
             printf 'LOCAL_CERTIFICATE := %s\n' "$CERT"
         elif [ "$CLASS" = "ETC" ]; then
-            printf 'LOCAL_SRC_FILES := proprietary/%s/etc/%s\n' "$SRC" "$FILE"
+            printf 'LOCAL_SRC_FILES := %s/etc/%s\n' "$SRC" "$FILE"
         elif [ "$CLASS" = "EXECUTABLES" ]; then
             if [ "$ARGS" = "rootfs" ]; then
                 SRC="$SRC/rootfs"
@@ -288,10 +288,10 @@ function write_packages() {
             else
                 SRC="$SRC/bin"
             fi
-            printf 'LOCAL_SRC_FILES := proprietary/%s/%s\n' "$SRC" "$FILE"
+            printf 'LOCAL_SRC_FILES := %s/%s\n' "$SRC" "$FILE"
             unset EXTENSION
         else
-            printf 'LOCAL_SRC_FILES := proprietary/%s/%s\n' "$SRC" "$FILE"
+            printf 'LOCAL_SRC_FILES := %s/%s\n' "$SRC" "$FILE"
         fi
         printf 'LOCAL_MODULE_TAGS := optional\n'
         printf 'LOCAL_MODULE_CLASS := %s\n' "$CLASS"
