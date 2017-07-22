@@ -11,6 +11,27 @@
 
 ## halogenOS 7.1
 
+## halogenOS 7.1.2 - 2017/07/22
+- Merge CAF upstream (LA.UM.5.6 89xx and LA.UM.5.8 8x98)
+- Block certain apps from using certain sensors to prevent battery drain
+- Some changes (mainly fixes) from AOSP master
+- Add global support for .opus file format
+- Improve Lockscreen Visualizer and its code quality
+- OnePlus devices: fix Alert Slider haptic feedback
+- oneplus2: Fix random reboots/freezes
+- oneplus2: Merge CAF kernel upstream
+- oneplus2: Make fingerprint sensor faster
+- oneplus2: Fix some camera issues
+- oneplus2: Reduce audio stutter in some situations
+- oneplus2: Improve battery life (again)
+- oneplus2: Better load distribution
+- oneplus2: Fix offline charging
+- oneplus2: Address some SELinux denials
+- hammerheadcaf: Nothing
+- athene: Nothing
+- jalebi: Nothing
+- kenzo: Nothing
+
 ## halogenOS 7.1.2 - 2017/07/08
 - Merge AOSP upstream (r24) including latest July security patches
 - Add long press volume keys for music track skip feature
