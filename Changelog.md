@@ -11,6 +11,9 @@
 
 ## halogenOS 7.1
 
+## halogenOS 7.1.2 - OnePlus 5 - 2017/08/02
+- First release
+
 ## halogenOS 7.1.2 - 2017/07/22
 - Merge CAF upstream (LA.UM.5.6 89xx and LA.UM.5.8 8x98)
 - Block certain apps from using certain sensors to prevent battery drain
