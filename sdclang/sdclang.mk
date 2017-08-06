@@ -12,8 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-SDCLANG ?= false
-SDCLANG_FORCED ?= false
+SDCLANG ?= true
 
 SDCLANG_PATH := vendor/qcom/sdclang-3.8/linux-x86/bin
 
