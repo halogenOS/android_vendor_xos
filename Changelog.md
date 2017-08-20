@@ -11,6 +11,21 @@
 
 ## halogenOS 7.1
 
+## halogenOS 7.1.2 - 2017/08/19
+- Merge AOSP upstream (r33) (includes August 5 security patch)
+- OP3/T & OP5: improve DASH charging support
+- SDClang
+- Some fixes
+- Shorten animations to make everything snappier
+- cheeseburger: HiFi sound for microphone
+- cheeseburger: Fix audio effects like V4A, visualizer, ...
+- cheeseburger: Enable camera zero shutter delay
+- cheeseburger: Update vendor blobs
+- cheeseburger: Enable LTO and Clang optimizations
+- cheeseburger: Update fingerprints and oem stuff
+- cheeseburger: Update Linux kernel to 4.4.81
+- cheeseburger: Build kernel with Linaro 7.1.1 toolchain
+
 ## halogenOS 7.1.2 - OnePlus 5 - 2017/08/02
 - First release
 
