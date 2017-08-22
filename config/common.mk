@@ -107,10 +107,10 @@ USE_DEX2OAT_DEBUG ?= false
 -include vendor/xos/config/packages.mk
 
 # Versioning
-ANDROID_VERSION = 7.1.2
+ANDROID_VERSION = 8.0
 PLATFORM_VERSION_CODENAME = REL
 
-THE_REVISIONS := caf=LA.UM.5.6.r1-05300-89xx.0+LA.UM.5.8.r1-02200-8x98.0,droid=android-7.1.2_r33
+THE_REVISIONS := caf=soonTM,droid=android_8.0.0_r4
 
 XOS_BUILD_DATE := $(shell date +%Y%m%d)
 
