@@ -855,3 +855,5 @@ function fixup_common_out_dir() {
 if [ -n "$JACK_SERVER_VM_ARGUMENTS" ] && [ -z "$ANDROID_JACK_VM_ARGS" ]; then
     export ANDROID_JACK_VM_ARGS=$JACK_SERVER_VM_ARGUMENTS
 fi
+
+source $(gettop)/vendor/xos/build/tools/xostools.sh
