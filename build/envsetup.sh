@@ -48,6 +48,9 @@ function breakfast()
         done
     unset f
 
+    # Check whether device tree exists and retrieve it from org if not
+    $(gettop)/build/make/tools/roomservice.py $target
+
     if [ $# -eq 0 ]; then
         # No arguments, so let's have the full menu
         lunch
