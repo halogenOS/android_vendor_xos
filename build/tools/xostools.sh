@@ -258,7 +258,7 @@ function reporesync() {
             echo -en "\n"
             # And let's sync!
             echo "Starting sync..."
-            reposync auto
+            reposync
         ;;
 
         repo)
