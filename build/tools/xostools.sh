@@ -65,7 +65,7 @@ source $(gettop)/vendor/xos/build/tools/xostools/xostoolshelp.sh
 # Handle the kitchen and automatically eat lunch if hungry
 function lunchauto() {
     echo "Eating breakfast..."
-    breakfast $@
+    breakfast $(echo -n "${1/XOS_/}" | cut -d '-' -f1)
     echo "Lunching..."
     lunch $@
 }
