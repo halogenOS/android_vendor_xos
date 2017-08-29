@@ -68,6 +68,7 @@ function lunchauto() {
     breakfast $(echo -n "${1/XOS_/}" | cut -d '-' -f1)
     echo "Lunching..."
     lunch $@
+    JACK
 }
 
 # Build function
