@@ -122,3 +122,5 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 
 # include definitions for SDCLANG
 include vendor/xos/sdclang/sdclang.mk
+
+include external/xos/config/common.mk
