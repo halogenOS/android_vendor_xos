@@ -298,6 +298,7 @@ function reposterilize() {
   done
   local startdir="$(gettop)"
   echo
+  set +e
   while read dir; do
     cd $startdir
     if [[ "$dir" == *"${startdir}/.repo/"* ]]; then continue; fi
@@ -330,6 +331,7 @@ function reposterilize() {
   done < <(find "$startdir/" -name ".git" -type d)
   cd "$startdir"
   unset startdir
+  set -e
   return 0
 }
 
