@@ -302,15 +302,16 @@ function reposterilize() {
     cd $startdir
     if [[ "$dir" == *"${startdir}/.repo/"* ]]; then continue; fi
     cd "$dir/../"
-    echo " - $(getPlatformPath)"
-    if [[ "$(getPlatformPath)" == "hardware/"* ]]; then
+    reladir="${dir/$startdir\//}"
+    echo " - $reladir"
+    if [[ "$reladir" == "hardware/"* ]]; then
       echo "  This is a hardware repository. Only resetting."
       git reset
       git reset --hard
       git clean -fd
       continue
     fi
-    if [[ "$(getPlatformPath)" == "prebuilts/"* ]]; then
+    if [[ "$reladir" == "prebuilts/"* ]]; then
       echo "  This is a prebuilts repository. Only resetting."
       git reset
       git reset --hard
