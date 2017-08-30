@@ -303,7 +303,8 @@ function reposterilize() {
     cd $startdir
     if [[ "$dir" == *"${startdir}/.repo/"* ]]; then continue; fi
     cd "$dir/../"
-    reladir="${dir/$startdir\//}"
+    nogitdir="$(realpath $dir/..)"
+    reladir="${nogitdir/$startdir\//}"
     echo " - $reladir"
     if [[ "$reladir" == "hardware/"* ]]; then
       echo "  This is a hardware repository. Only resetting."
