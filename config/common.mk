@@ -80,6 +80,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/xos/prebuilt/common/etc/selective-spn-conf.xml:system/etc/selective-spn-conf.xml
 
+# Fix for Google Dialer issues
+PRODUCT_COPY_FILES +=  \
+    vendor/xos/prebuilt/etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
+
 # Overlays & Include LatinIME dictionaries
 PRODUCT_PACKAGE_OVERLAYS += \
 	vendor/xos/overlay/common \
