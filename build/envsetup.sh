@@ -76,7 +76,11 @@ function breakfast()
     unset f
 
     # Check whether device tree exists and retrieve it from org if not
-    $(gettop)/build/make/tools/roomservice.py $target
+    depsonly=
+    if [ ! -z "$(find device/ -mindepth 2 -maxdepth 2 -name $target)" ]; then
+        depsonly=True
+    fi
+    $(gettop)/build/make/tools/roomservice.py $target $depsonly
 
     if [ $# -eq 0 ]; then
         # No arguments, so let's have the full menu
