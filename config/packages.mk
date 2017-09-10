@@ -12,11 +12,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     messaging \
     CellBroadcastReceiver \
-    Stk \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
+    Stk
 
 #RCS //Needed for Contacts and Mms Apps
 PRODUCT_PACKAGES += \
