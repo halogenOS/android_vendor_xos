@@ -36,4 +36,6 @@
         <item>silent</item>
     </string-array>
 
+    <!-- Disable the IME switcher notification -->
+    <bool name="show_ongoing_ime_switcher">false</bool>
 </resources>
