@@ -22,6 +22,9 @@ endif
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
+# Rescue party just gatecrashes the party
+PRODUCT_PROPERTY_OVERRIDES += persist.sys.disable_rescue=true
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/xos/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
