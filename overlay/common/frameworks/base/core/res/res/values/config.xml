@@ -63,4 +63,9 @@
 
     <!-- Slow brightness animation ramp rate in brightness units per second-->
     <integer translatable="false" name="config_brightness_ramp_rate_slow">60</integer>
+
+    <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
+         in hardware. -->
+    <bool name="config_setColorTransformAccelerated">true</bool>
+
 </resources>
