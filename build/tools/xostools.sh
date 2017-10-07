@@ -101,7 +101,7 @@ function build() {
                 # Of course let's check the kitchen
                 lunchauto $target
                 # Clean if desired
-                [ "$cleanarg" == "noclean" ] || make clean
+                [[ "$cleanarg" == "noclean" ]] || make clean
                 # Now start building
                 echo "Using $THREAD_COUNT_BUILD threads for build."
                 if [ "$buildarg" != "mm" ]; then
@@ -120,7 +120,7 @@ function build() {
                 ALL_MODULES_TO_BUILD="$@"
                 [[ "$@" == *"noclean"* ]] || make clean
                 for module in $ALL_MODULES_TO_BUILD; do
-                    [ "$module" == "noclean" ] && continue
+                    [[ "$module" == "noclean" ]] && continue
                     echo
                     echob "Building module $module"
                     echo
@@ -176,7 +176,7 @@ function reposync() {
         *) echo "Unknown argument \"$REPO_ARG\" for reposync ." ;;
     esac
 
-    if [ "$3" == "quiet" ]; then
+    if [[ "$3" == "quiet" ]]; then
     QUIET_ARG="-q"
     fi
     # Sync!! Use the power of shell scripting!
@@ -195,7 +195,7 @@ function reporesync() {
     cd $(gettop)
     # Critical security check to prevent deleting home directory if the build
     # directory has been removed from the work tree for whatever reason.
-    if [ "$(pwd)" == "$(ls -d ~)" ]; then
+    if [[ "$(pwd)" == "$(ls -d ~)" ]]; then
         # Let's warn the user about this bad state.
         echoe "WARNING: 'gettop' is returning your \033[1;91mhome directory\033[0m!"
         echoe "         In order to protect your data, this process will be aborted now."
@@ -219,8 +219,14 @@ function reporesync() {
                 "WARNING: This process will delete \033[1myour whole source tree!\033[0m"
             # Ask if the girl or guy really wants to continue.
             if [ "$2" != "confident" ]; then
-            read -p "Do you want to continue? [y\N] : " \
-                 -n 1 -r
+            # Check if shell is ZSH by checking ZSH_NAME var, which is only set for zsh.
+            if [[ -z "$ZSH_NAME" ]]; then # In use shell is zsh
+                read -k 1 -r "?Do you want to continue? [y\N] : "
+            else
+                # Shell isnt zsh, so assume bash syntax.
+                read -p "Do you want to continue? [y\N] : " \
+                     -n 1 -r
+            fi
             # Check the reply.
             [[ ! $REPLY =~ ^[Yy]$ ]] && echoe "\nAborted." && return 1
             fi
@@ -242,14 +248,12 @@ function reporesync() {
             echoen "\n"
             # Collect all directories found in the top of the working tree
             # like build, abi, art, bionic, cts, dalvik, external, device, ...
-            echo "Collecting directories..."
-            ALLFD=$(echo -en $(ls -a))
-            # Remove these directories and show the user the beautiful progress
-            echo "Removing directories..."
+            # and then remove them, and show the user the beautiful progress
+            echo "Collecting and removing directories..."
             echo -en "\n\r"
-            for ff in $ALLFD; do
+            for ff in *; do
                 case "$ff" in
-                    "." | ".." | ".repo");;
+                  "." | ".." | ".repo");;
                     *)
                         echo -en "\rRemoving $ff\033[K"
                         rm -rf "$ff"
@@ -285,10 +289,10 @@ function reporeset() {
 
 # Completely cleans everything and deletes all untracked files
 function reposterilize() {
-  if [ "$(pwd)" == "$(realpath ~)" ]; then
+  if [[ "$(pwd)" == "$(realpath ~)" ]]; then
     echo "Aborted because you are in your home dir"
     return 1
-  elif [ "$(gettop)" == "" ]; then
+  elif [[ "$(gettop)" == "" ]]; then
     echo "Aborted, top is not set"
     return 1
   fi
