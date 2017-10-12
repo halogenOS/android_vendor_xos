@@ -39,6 +39,10 @@ ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS),true)
 	endif
 endif
 
+# Launcher3
+PRODUCT_PACKAGES += \
+    Launcher3
+
 # Optional packages
 PRODUCT_PACKAGES += \
     libbthost_if \
