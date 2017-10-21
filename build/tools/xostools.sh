@@ -159,7 +159,7 @@ function reposync() {
         fast)       THREADS_REPO=$(($CPU_COUNT * 10)) ;;
         auto)                               ;;
         slow)       THREADS_REPO=$CPU_COUNT;;
-        slower)     THREADS_REPO=$(($CPU_COUNT / 2 + 0.5));; # + 0.5 will round up
+        slower)     THREADS_REPO=$(echo "scale=1; $CPU_COUNT / 2 + 0.5" | bc | cut -d '.' -f1);; # + 0.5 will round
         single)     THREADS_REPO=1          ;;
         easteregg)  THREADS_REPO=384        ;; # Neil's love
         quiet)      QUIET_ARG="-q"          ;;
