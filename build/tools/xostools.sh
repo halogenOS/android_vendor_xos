@@ -3,10 +3,18 @@
 #
 # Copyright (C) 2016-2017 The halogenOS Project
 #
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
-#
-# This script was originally made by xdevs23 (http://github.com/xdevs23)
-#
 
 # Get the CPU count
 # CPU count is either your virtual cores when using Hyperthreading
@@ -150,13 +158,12 @@ function reposync() {
     THREADS_REPO=$THREAD_COUNT_N_BUILD
     # Automatic!
     [ -z "$REPO_ARG" ] && REPO_ARG="auto"
-    [[ -d "$REPO_ARG" || $(repo manifest | grep "$REPO_ARG") ]] && REPO_ARG="auto" && PATH_ARG="$1"
     # Let's decide how much threads to use
     # Self-explanatory.
     case $REPO_ARG in
-        turbo)      THREADS_REPO=$(($CPU_COUNT * 100));;
-        faster)     THREADS_REPO=$(($CPU_COUNT * 20)) ;;
-        fast)       THREADS_REPO=$(($CPU_COUNT * 10)) ;;
+        turbo)      THREADS_REPO=$(($CPU_COUNT * 10));;
+        faster)     THREADS_REPO=$(($CPU_COUNT * 4)) ;;
+        fast)       THREADS_REPO=$(($CPU_COUNT * 2)) ;;
         auto)                               ;;
         slow)       THREADS_REPO=$CPU_COUNT;;
         slower)     THREADS_REPO=$(echo "scale=1; $CPU_COUNT / 2 + 0.5" | bc | cut -d '.' -f1);; # + 0.5 will round
@@ -173,7 +180,10 @@ function reposync() {
             return 0
         ;;
         # Oops...
-        *) echo "Unknown argument \"$REPO_ARG\" for reposync ." ;;
+        *)
+          [[ "$REPO_ARG" == */ ]] && REPO_ARG="echo ${REPO_ARG%?}"
+          [[ -d "$REPO_ARG" || $(repo manifest | grep "$REPO_ARG") ]] && REPO_ARG="auto" && PATH_ARG="$1"
+          [[ -d "$PATH_ARG" ]] || echo "Unknown argument \"$REPO_ARG\" for reposync, Defaulting to workspace." ;;
     esac
 
     if [[ "$3" == "quiet" ]]; then
