@@ -131,5 +131,3 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 include vendor/xos/sdclang/sdclang.mk
 
 include external/xos/config/common.mk
-
-include frameworks/base/data/sounds/GoogleAudio.mk
