@@ -99,7 +99,7 @@ $(call bt-vendor-set-path-variant,bt-caf)
 else
 
 ifeq ($(BOARD_AUDIO_HAL_PATH),)
-$(call project-set-path,qcom-audio,hardware/qcom/audio/default)
+$(call project-set-path,qcom-audio,hardware/qcom/audio)
 else
 $(call project-set-path,qcom-audio,$(BOARD_AUDIO_HAL_PATH))
 endif
