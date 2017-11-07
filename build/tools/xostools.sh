@@ -230,7 +230,7 @@ function reporesync() {
             # Ask if the girl or guy really wants to continue.
             if [ "$2" != "confident" ]; then
             # Check if shell is ZSH by checking ZSH_NAME var, which is only set for zsh.
-            if [[ -z "$ZSH_NAME" ]]; then # In use shell is zsh
+            if [[ ! -z "$ZSH_NAME" ]]; then # In use shell is zsh
                 read -k 1 -r "?Do you want to continue? [y\N] : "
             else
                 # Shell isnt zsh, so assume bash syntax.
