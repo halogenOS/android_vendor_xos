@@ -27,4 +27,40 @@
     <string name="config_mms_user_agent">AOSP</string>
     <string name="config_mms_user_agent_profile_url">http://www.google.com/oha/rdf/ua-profile-kila.xml</string>
 
+    <!-- Integer indicating wpa_supplicant scan interval in milliseconds -->
+    <integer translatable="false" name="config_wifi_supplicant_scan_interval">30000</integer>
+
+    <!-- Control the behavior when the user long presses the home button.
+            0 - Nothing
+            1 - Launch all apps intent
+            2 - Launch assist intent
+         This needs to match the constants in
+         policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
+    -->
+    <integer name="config_longPressOnHomeBehavior">2</integer>
+
+    <!-- Minimum velocity to initiate a fling, as measured in dips per second. -->
+    <dimen name="config_viewMinFlingVelocity">60dp</dimen>
+
+    <!-- The duration (in milliseconds) of a short animation. -->
+    <integer name="config_shortAnimTime">80</integer>
+
+    <!-- The duration (in milliseconds) of a medium-length animation. -->
+    <integer name="config_mediumAnimTime">160</integer>
+
+    <!-- The duration (in milliseconds) of a long animation. -->
+    <integer name="config_longAnimTime">200</integer>
+
+    <!-- The duration (in milliseconds) of the activity open/close and fragment open/close animations. -->
+    <integer name="config_activityShortDur">70</integer>
+    <integer name="config_activityDefaultDur">100</integer>
+
+    <!-- The duration (in milliseconds) of the tooltip show/hide animations. -->
+    <integer name="config_tooltipAnimTime">140</integer>
+
+    <!-- Fast brightness animation ramp rate in brightness units per second-->
+    <integer translatable="false" name="config_brightness_ramp_rate_fast">220</integer>
+
+    <!-- Slow brightness animation ramp rate in brightness units per second-->
+    <integer translatable="false" name="config_brightness_ramp_rate_slow">60</integer>
 </resources>
