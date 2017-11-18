@@ -111,7 +111,7 @@ USE_DEX2OAT_DEBUG ?= false
 ANDROID_VERSION = 8.0
 PLATFORM_VERSION_CODENAME = REL
 
-THE_REVISIONS := caf=LA.UM.6.4.r1-04300-8x98.0,droid=android_8.0.0_r27
+THE_REVISIONS := caf=LA.UM.6.4.r1-04300-8x98.0,droid=android_8.0.0_r33
 
 XOS_BUILD_DATE := $(shell date +%Y%m%d)
 
