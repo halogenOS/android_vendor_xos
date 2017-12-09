@@ -72,9 +72,8 @@
          on the current state of the device. -->
     <string-array translatable="false" name="config_globalActionsList">
         <item>power</item>
-        <item>reboot</item>
-        <item>airplane</item>
-        <item>silent</item>
+        <item>restart</item>
+        <item>recovery</item>
     </string-array>
 
 </resources>
