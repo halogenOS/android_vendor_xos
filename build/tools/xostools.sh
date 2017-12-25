@@ -294,7 +294,7 @@ function reporesync() {
 }
 
 function reporeset() {
-  repo forall -c 'git cherry-pick --abort; git revert --abort; git rebase --abort; git reset --hard XOS/XOS-8.0 || git reset --hard github/XOS-8.0 || git reset --hard' 2>/dev/null
+  repo forall -c 'git cherry-pick --abort; git revert --abort; git rebase --abort; git reset --hard XOS/XOS-8.1 || git reset --hard github/XOS-8.1 || git reset --hard' 2>/dev/null
 }
 
 # Completely cleans everything and deletes all untracked files
@@ -339,9 +339,9 @@ function reposterilize() {
     git rebase --abort 2>/dev/null
     git cherry-pick --abort 2>/dev/null
     git reset 2>/dev/null
-    git reset --hard XOS/XOS-8.0 2>/dev/null \
- || git reset --hard github/XOS-8.0 2>/dev/null \
- || git reset --hard gerrit/XOS-8.0 2>/dev/null \
+    git reset --hard XOS/XOS-8.1 2>/dev/null \
+ || git reset --hard github/XOS-8.1 2>/dev/null \
+ || git reset --hard gerrit/XOS-8.1 2>/dev/null \
  || git reset --hard 2>/dev/null
     git clean -fd
   done < <(find "$startdir/" -name ".git" -type d)
@@ -353,8 +353,8 @@ function reposterilize() {
 
 function resetmanifest() {
   cd $(gettop)/.repo/manifests
-  git fetch origin XOS-8.0 2>&1 >/dev/null
-  git reset --hard origin/XOS-8.0 2>&1 >/dev/null
+  git fetch origin XOS-8.1 2>&1 >/dev/null
+  git reset --hard origin/XOS-8.1 2>&1 >/dev/null
   cd $(gettop)
 }
 
