@@ -14,7 +14,7 @@ PRODUCT_PACKAGES += \
     CellBroadcastReceiver \
     Stk
 
-#RCS //Needed for Contacts and Mms Apps
+# RCS - Needed for Contacts and Mms Apps
 PRODUCT_PACKAGES += \
     rcs_service_aidl \
     rcs_service_aidl.xml \
