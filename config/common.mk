@@ -105,7 +105,7 @@ PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
 USE_DEX2OAT_DEBUG ?= false
 
 # Additional packages
--include vendor/xos/config/packages.mk
+include vendor/xos/config/packages.mk
 
 # Versioning
 ANDROID_VERSION = 8.1
