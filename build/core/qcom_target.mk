@@ -1,5 +1,8 @@
 # Target-specific configuration
 
+# Bring in Qualcomm helper macros
+include vendor/xos/build/core/qcom_utils.mk
+
 # Populate the qcom hardware variants in the project pathmap.
 define ril-set-path-variant
 $(call project-set-path-variant,ril,TARGET_RIL_VARIANT,hardware/$(1))
@@ -22,10 +25,12 @@ $(call project-set-path,qcom-$(2),$(strip $(path)))
 endef
 
 ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
+    B_FAMILY := msm8226 msm8610 msm8974
+    B64_FAMILY := msm8992 msm8994
+    BR_FAMILY := msm8909 msm8916
+    UM_FAMILY := msm8937 msm8953
 
-    qcom_flags := -DQCOM_HARDWARE
-    qcom_flags += -DQCOM_BSP
-    qcom_flags += -DQTI_BSP
+    BOARD_USES_ADRENO := true
 
     TARGET_USES_QCOM_BSP := true
 
@@ -33,92 +38,66 @@ ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
     TARGET_COMPILE_WITH_MSM_KERNEL := true
 
     ifneq ($(filter msm7x27a msm7x30 msm8660 msm8960,$(TARGET_BOARD_PLATFORM)),)
-        # Enable legacy graphics functions
-        qcom_flags += -DQCOM_BSP_LEGACY
         # Enable legacy audio functions
         ifeq ($(BOARD_USES_LEGACY_ALSA_AUDIO),true)
             USE_CUSTOM_AUDIO_POLICY := 1
-            qcom_flags += -DLEGACY_ALSA_AUDIO
         endif
     endif
 
-    # Enable extra offloading for post-805 targets
-    ifneq ($(filter msm8992 msm8994,$(TARGET_BOARD_PLATFORM)),)
-        qcom_flags += -DHAS_EXTRA_FLAC_METADATA
+    # Allow building audio encoders
+    TARGET_USES_QCOM_MM_AUDIO := true
+
+    # Enable color metadata for modern UM targets
+    ifneq ($(filter msm8996 msm8998 sdm660,$(TARGET_BOARD_PLATFORM)),)
+        TARGET_USES_COLOR_METADATA := true
     endif
 
-    TARGET_GLOBAL_CFLAGS += $(qcom_flags)
-    TARGET_GLOBAL_CPPFLAGS += $(qcom_flags)
-    CLANG_TARGET_GLOBAL_CFLAGS += $(qcom_flags)
-    CLANG_TARGET_GLOBAL_CPPFLAGS += $(qcom_flags)
+    # List of targets that use master side content protection
+    MASTER_SIDE_CP_TARGET_LIST := msm8996 msm8998 sdm660
 
-    # Multiarch needs these too..
-    2ND_TARGET_GLOBAL_CFLAGS += $(qcom_flags)
-    2ND_TARGET_GLOBAL_CPPFLAGS += $(qcom_flags)
-    2ND_CLANG_TARGET_GLOBAL_CFLAGS += $(qcom_flags)
-    2ND_CLANG_TARGET_GLOBAL_CPPFLAGS += $(qcom_flags)
-
-    ifeq ($(QCOM_HARDWARE_VARIANT),)
-        ifneq ($(filter msm8610 msm8226 msm8974,$(TARGET_BOARD_PLATFORM)),)
-            QCOM_HARDWARE_VARIANT := msm8974
-        else
-        ifneq ($(filter msm8909 msm8916,$(TARGET_BOARD_PLATFORM)),)
-            QCOM_HARDWARE_VARIANT := msm8916
-        else
-        ifneq ($(filter msm8953 msm8937,$(TARGET_BOARD_PLATFORM)),)
-            QCOM_HARDWARE_VARIANT := msm8937
-        else
-        ifneq ($(filter msm8992 msm8994,$(TARGET_BOARD_PLATFORM)),)
-            QCOM_HARDWARE_VARIANT := msm8994
-        else
-            QCOM_HARDWARE_VARIANT := $(TARGET_BOARD_PLATFORM)
-        endif
-        endif
-        endif
-        endif
+    ifeq ($(call is-board-platform-in-list, $(B_FAMILY)),true)
+        MSM_VIDC_TARGET_LIST := $(B_FAMILY)
+        QCOM_HARDWARE_VARIANT := msm8974
+    else
+    ifeq ($(call is-board-platform-in-list, $(B64_FAMILY)),true)
+        MSM_VIDC_TARGET_LIST := $(B64_FAMILY)
+        QCOM_HARDWARE_VARIANT := msm8994
+    else
+    ifeq ($(call is-board-platform-in-list, $(BR_FAMILY)),true)
+        MSM_VIDC_TARGET_LIST := $(BR_FAMILY)
+        QCOM_HARDWARE_VARIANT := msm8916
+    else
+    ifeq ($(call is-board-platform-in-list, $(UM_FAMILY)),true)
+        MSM_VIDC_TARGET_LIST := $(UM_FAMILY)
+        QCOM_HARDWARE_VARIANT := msm8937
+    else
+        MSM_VIDC_TARGET_LIST := $(TARGET_BOARD_PLATFORM)
+        QCOM_HARDWARE_VARIANT := $(TARGET_BOARD_PLATFORM)
+    endif
+    endif
+    endif
     endif
 
-# HACK: check to see if build uses standard QC HAL paths by checking for CM path structure
-AOSP_VARIANT_MAKEFILE := $(wildcard hardware/qcom/audio/default/Android.mk)
-ifeq ("$(AOSP_VARIANT_MAKEFILE)","")
-$(call project-set-path,qcom-audio,hardware/qcom/audio)
-$(call project-set-path,qcom-display,hardware/qcom/display)
-$(call project-set-path,qcom-media,hardware/qcom/media)
-$(call set-device-specific-path,CAMERA,camera,hardware/qcom/camera)
-$(call set-device-specific-path,GPS,gps,hardware/qcom/gps)
-$(call set-device-specific-path,SENSORS,sensors,hardware/qcom/sensors)
-$(call set-device-specific-path,LOC_API,loc-api,vendor/qcom/opensource/location)
-$(call set-device-specific-path,DATASERVICES,dataservices,vendor/qcom/opensource/dataservices)
-$(call project-set-path,ril,hardware/ril)
-$(call project-set-path,wlan,hardware/qcom/wlan)
-$(call project-set-path,bt-vendor,hardware/qcom/bt)
-else
-$(call project-set-path,qcom-audio,hardware/qcom/audio-caf/$(QCOM_HARDWARE_VARIANT))
-
-ifeq ($(SONY_BF64_KERNEL_VARIANT),true)
-$(call project-set-path,qcom-display,hardware/qcom/display-caf/sony)
-$(call project-set-path,qcom-media,hardware/qcom/media-caf/sony)
-else
-$(call project-set-path,qcom-display,hardware/qcom/display-caf/$(QCOM_HARDWARE_VARIANT))
-$(call project-set-path,qcom-media,hardware/qcom/media-caf/$(QCOM_HARDWARE_VARIANT))
-endif
+$(call set-device-specific-path,AUDIO,audio,hardware/qcom/audio-caf/$(QCOM_HARDWARE_VARIANT))
+$(call set-device-specific-path,DISPLAY,display,hardware/qcom/display-caf/$(QCOM_HARDWARE_VARIANT))
+$(call set-device-specific-path,MEDIA,media,hardware/qcom/media-caf/$(QCOM_HARDWARE_VARIANT))
 
 $(call set-device-specific-path,CAMERA,camera,hardware/qcom/camera)
 $(call set-device-specific-path,GPS,gps,hardware/qcom/gps)
 $(call set-device-specific-path,SENSORS,sensors,hardware/qcom/sensors)
 $(call set-device-specific-path,LOC_API,loc-api,vendor/qcom/opensource/location)
 $(call set-device-specific-path,DATASERVICES,dataservices,vendor/qcom/opensource/dataservices)
+$(call set-device-specific-path,POWER,power,hardware/qcom/power)
 
 $(call ril-set-path-variant,ril)
 $(call wlan-set-path-variant,wlan-caf)
 $(call bt-vendor-set-path-variant,bt-caf)
-endif # AOSP_VARIANT_MAKEFILE
 
 else
 
 $(call project-set-path,qcom-audio,hardware/qcom/audio/default)
 $(call project-set-path,qcom-display,hardware/qcom/display/$(TARGET_BOARD_PLATFORM))
-$(call project-set-path,qcom-media,hardware/qcom/media)
+$(call project-set-path,qcom-media,hardware/qcom/media/$(TARGET_BOARD_PLATFORM))
 
 $(call project-set-path,qcom-camera,hardware/qcom/camera)
 $(call project-set-path,qcom-gps,hardware/qcom/gps)

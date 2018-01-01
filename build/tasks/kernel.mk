@@ -1,4 +1,5 @@
 # Copyright (C) 2012 The CyanogenMod Project
+#           (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -29,17 +30,19 @@
 #   TARGET_KERNEL_ARCH                 = Kernel Arch
 #   TARGET_KERNEL_HEADER_ARCH          = Optional Arch for kernel headers if
 #                                          different from TARGET_KERNEL_ARCH
-#   TARGET_USES_UNCOMPRESSED_KERNEL    = 'true' if Kernel is uncompressed,
-#                                          optional, defaults to false
 #   TARGET_KERNEL_CROSS_COMPILE_PREFIX = Compiler prefix (e.g. arm-eabi-)
-#                                          defaults to arm-linux-androideabi- for arm
-#                                                      aarch64-linux-android- for arm64
-#                                                      x86_64-linux-android- for x86
+#                                          defaults to arm-linux-androidkernel- for arm
+#                                                      aarch64-linux-androidkernel- for arm64
+#                                                      x86_64-linux-androidkernel- for x86
 #
-#   BOARD_KERNEL_IMAGE_NAME            = Built image name, optional,
-#                                          defaults to Image.gz on arm64
-#                                          defaults to Image if TARGET_USES_UNCOMPRESSED_KERNEL
-#                                          defaults to zImage otherwise
+#   BOARD_KERNEL_IMAGE_NAME            = Built image name
+#                                          for ARM use: zImage
+#                                          for ARM64 use: Image.gz
+#                                          for uncompressed use: Image
+#                                          If using an appended DT, append '-dtb'
+#                                          to the end of the image name.
+#                                          For example, for ARM devices,
+#                                          use zImage-dtb instead of zImage.
 #
 #   KERNEL_TOOLCHAIN_PREFIX            = Overrides TARGET_KERNEL_CROSS_COMPILE_PREFIX,
 #                                          Set this var in shell to override
@@ -95,25 +98,24 @@ ifeq ($(KERNEL_HEADER_DEFCONFIG),)
 KERNEL_HEADER_DEFCONFIG := $(KERNEL_DEFCONFIG)
 endif
 
-
-ifneq ($(BOARD_KERNEL_IMAGE_NAME),)
-  TARGET_PREBUILT_INT_KERNEL_TYPE := $(BOARD_KERNEL_IMAGE_NAME)
-else
-  ifeq ($(TARGET_USES_UNCOMPRESSED_KERNEL),true)
-    TARGET_PREBUILT_INT_KERNEL_TYPE := Image
-  else
-    ifeq ($(KERNEL_ARCH),arm64)
-      TARGET_PREBUILT_INT_KERNEL_TYPE := Image.gz
-    else
-      TARGET_PREBUILT_INT_KERNEL_TYPE := zImage
-    endif
-  endif
+ifeq ($(BOARD_KERNEL_IMAGE_NAME),)
+$(error BOARD_KERNEL_IMAGE_NAME not defined.)
 endif
-
-TARGET_PREBUILT_INT_KERNEL := $(KERNEL_OUT)/arch/$(KERNEL_ARCH)/boot/$(TARGET_PREBUILT_INT_KERNEL_TYPE)
+ifneq ($(TARGET_USES_UNCOMPRESSED_KERNEL),)
+$(error TARGET_USES_UNCOMPRESSED_KERNEL is deprecated.)
+endif
+ifneq ($(TARGET_KERNEL_APPEND_DTB),)
+$(error TARGET_KERNEL_APPEND_DTB is deprecated.)
+endif
+TARGET_PREBUILT_INT_KERNEL := $(KERNEL_OUT)/arch/$(KERNEL_ARCH)/boot/$(BOARD_KERNEL_IMAGE_NAME)
 
 # Clear this first to prevent accidental poisoning from env
 MAKE_FLAGS :=
+
+ifeq ($(KERNEL_ARCH),arm)
+  # Avoid "Unknown symbol _GLOBAL_OFFSET_TABLE_" errors
+  MAKE_FLAGS += CFLAGS_MODULE="-fno-pic"
+endif
 
 ifeq ($(KERNEL_ARCH),arm64)
   # Avoid "unsupported RELA relocation: 311" errors (R_AARCH64_ADR_GOT_PAGE)
@@ -134,16 +136,6 @@ else
     KERNEL_ADDITIONAL_CONFIG_SRC := /dev/null
 endif
 
-## Do be discontinued in a future version. Notify builder about target
-## kernel format requirement
-ifeq ($(BOARD_KERNEL_IMAGE_NAME),)
-ifeq ($(BOARD_USES_UBOOT),true)
-        $(error "Please set BOARD_KERNEL_IMAGE_NAME to uImage")
-else ifeq ($(BOARD_USES_UNCOMPRESSED_BOOT),true)
-        $(error "Please set BOARD_KERNEL_IMAGE_NAME to Image")
-endif
-endif
-
 ifeq "$(wildcard $(KERNEL_SRC) )" ""
     ifneq ($(TARGET_PREBUILT_KERNEL),)
         HAS_PREBUILT_KERNEL := true
@@ -162,7 +154,6 @@ ifeq "$(wildcard $(KERNEL_SRC) )" ""
         $(warning * THIS IS DEPRECATED, AND WILL BE DISCONTINUED                *)
         $(warning * Please configure your device to download the kernel         *)
         $(warning * source repository to $(KERNEL_SRC))
-        $(warning * See http://wiki.cyanogenmod.org/w/Doc:_integrated_kernel_building)
         $(warning * for more information                                        *)
         $(warning ***************************************************************)
         FULL_KERNEL_BUILD := false
@@ -206,20 +197,24 @@ KERNEL_HEADERS_INSTALL_STAMP := $(KERNEL_OUT)/.headers_install_stamp
 ifeq ($(NEED_KERNEL_MODULE_ROOT),true)
 KERNEL_MODULES_INSTALL := root
 KERNEL_MODULES_OUT := $(TARGET_ROOT_OUT)/lib/modules
+KERNEL_DEPMOD_STAGING_DIR := $(call intermediates-dir-for,PACKAGING,depmod_recovery)
+KERNEL_MODULE_MOUNTPOINT :=
 else
-KERNEL_MODULES_INSTALL := system
-KERNEL_MODULES_OUT := $(TARGET_OUT)/lib/modules
+KERNEL_MODULES_INSTALL := $(TARGET_COPY_OUT_VENDOR)
+KERNEL_MODULES_OUT := $(TARGET_OUT_VENDOR)/lib/modules
+KERNEL_DEPMOD_STAGING_DIR := $(call intermediates-dir-for,PACKAGING,depmod_vendor)
+KERNEL_MODULE_MOUNTPOINT := vendor
 endif
 
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(strip $(TARGET_KERNEL_CROSS_COMPILE_PREFIX))
 ifneq ($(TARGET_KERNEL_CROSS_COMPILE_PREFIX),)
 KERNEL_TOOLCHAIN_PREFIX ?= $(TARGET_KERNEL_CROSS_COMPILE_PREFIX)
-else ifeq ($(TARGET_ARCH),arm64)
-KERNEL_TOOLCHAIN_PREFIX ?= aarch64-linux-android-
-else ifeq ($(TARGET_ARCH),arm)
-KERNEL_TOOLCHAIN_PREFIX ?= arm-linux-androideabi-
-else ifeq ($(TARGET_ARCH),x86)
-KERNEL_TOOLCHAIN_PREFIX ?= x86_64-linux-android-
+else ifeq ($(KERNEL_ARCH),arm64)
+KERNEL_TOOLCHAIN_PREFIX ?= aarch64-linux-androidkernel-
+else ifeq ($(KERNEL_ARCH),arm)
+KERNEL_TOOLCHAIN_PREFIX ?= arm-linux-androidkernel-
+else ifeq ($(KERNEL_ARCH),x86)
+KERNEL_TOOLCHAIN_PREFIX ?= x86_64-linux-androidkernel-
 endif
 
 ifeq ($(KERNEL_TOOLCHAIN),)
@@ -231,43 +226,33 @@ endif
 endif
 
 ifneq ($(USE_CCACHE),)
-    ccache := $(ANDROID_BUILD_TOP)/prebuilts/misc/$(HOST_PREBUILT_TAG)/ccache/ccache
-    # Check that the executable is here.
-    ccache := $(strip $(wildcard $(ccache)))
+    # Detect if the system already has ccache installed to use instead of the prebuilt
+    ccache := $(shell which ccache)
+
+    ifeq ($(ccache),)
+        ccache := $(ANDROID_BUILD_TOP)/prebuilts/misc/$(HOST_PREBUILT_TAG)/ccache/ccache
+        # Check that the executable is here.
+        ccache := $(strip $(wildcard $(ccache)))
+    endif
 endif
 
 KERNEL_CROSS_COMPILE := CROSS_COMPILE="$(ccache) $(KERNEL_TOOLCHAIN_PATH)"
 ccache =
 
-define mv-modules
-    mdpath=`find $(KERNEL_MODULES_OUT) -type f -name modules.order`;\
-    if [ "$$mdpath" != "" ];then\
-        mpath=`dirname $$mdpath`;\
-        ko=`find $$mpath/kernel -type f -name *.ko`;\
-        for i in $$ko; do $(KERNEL_TOOLCHAIN_PATH)strip --strip-unneeded $$i;\
-        mv $$i $(KERNEL_MODULES_OUT)/; done;\
-    fi
-endef
-
-define clean-module-folder
-    mdpath=`find $(KERNEL_MODULES_OUT) -type f -name modules.order`;\
-    if [ "$$mdpath" != "" ];then\
-        mpath=`dirname $$mdpath`; rm -rf $$mpath;\
-    fi
-endef
-
 ifeq ($(HOST_OS),darwin)
-  MAKE_FLAGS += C_INCLUDE_PATH=$(ANDROID_BUILD_TOP)/external/elfutils/libelf/
+  MAKE_FLAGS += C_INCLUDE_PATH=$(ANDROID_BUILD_TOP)/external/elfutils/libelf:/usr/local/opt/openssl/include
+  MAKE_FLAGS += LIBRARY_PATH=/usr/local/opt/openssl/lib
 endif
 
 ifeq ($(TARGET_KERNEL_MODULES),)
-    TARGET_KERNEL_MODULES := no-external-modules
+    TARGET_KERNEL_MODULES := INSTALLED_KERNEL_MODULES
 endif
 
 $(KERNEL_OUT_STAMP):
 	$(hide) mkdir -p $(KERNEL_OUT)
 	$(hide) rm -rf $(KERNEL_MODULES_OUT)
 	$(hide) mkdir -p $(KERNEL_MODULES_OUT)
+	$(hide) rm -rf $(KERNEL_DEPMOD_STAGING_DIR)
 	$(hide) touch $@
 
 KERNEL_ADDITIONAL_CONFIG_OUT := $(KERNEL_OUT)/.additional_config
@@ -283,6 +268,8 @@ $(KERNEL_CONFIG): $(KERNEL_OUT_STAMP) $(KERNEL_DEFCONFIG_SRC) $(KERNEL_ADDITIONA
 			echo "Overriding kernel config with '$(KERNEL_CONFIG_OVERRIDE)'"; \
 			echo $(KERNEL_CONFIG_OVERRIDE) >> $(KERNEL_OUT)/.config; \
 			$(MAKE) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) oldconfig; fi
+	# Create defconfig build artifact
+	$(hide) $(MAKE) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) savedefconfig
 	$(hide) if [ ! -z "$(KERNEL_ADDITIONAL_CONFIG)" ]; then \
 			echo "Using additional config '$(KERNEL_ADDITIONAL_CONFIG)'"; \
 			$(KERNEL_SRC)/scripts/kconfig/merge_config.sh -m -O $(KERNEL_OUT) $(KERNEL_OUT)/.config $(KERNEL_SRC)/arch/$(KERNEL_ARCH)/configs/$(KERNEL_ADDITIONAL_CONFIG); \
@@ -290,31 +277,37 @@ $(KERNEL_CONFIG): $(KERNEL_OUT_STAMP) $(KERNEL_DEFCONFIG_SRC) $(KERNEL_ADDITIONA
 
 TARGET_KERNEL_BINARIES: $(KERNEL_OUT_STAMP) $(KERNEL_CONFIG) $(KERNEL_HEADERS_INSTALL_STAMP)
 	@echo "Building Kernel"
-	$(MAKE) $(MAKE_FLAGS) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) $(TARGET_PREBUILT_INT_KERNEL_TYPE)
-	$(hide) if grep -q 'CONFIG_OF=y' $(KERNEL_CONFIG) ; \
-			then \
-				echo "Building DTBs" ; \
-				$(MAKE) $(MAKE_FLAGS) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) dtbs ; \
-			else \
-				echo "DTBs not enabled" ; \
-			fi ;
-	$(hide) if grep -q 'CONFIG_MODULES=y' $(KERNEL_CONFIG) ; \
-			then \
-				echo "Building Kernel Modules" ; \
-				$(MAKE) $(MAKE_FLAGS) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) modules && \
-				$(MAKE) $(MAKE_FLAGS) -C $(KERNEL_SRC) O=$(KERNEL_OUT) INSTALL_MOD_PATH=../../$(KERNEL_MODULES_INSTALL) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) modules_install && \
-				$(mv-modules) && \
-				$(clean-module-folder) ; \
-			else \
-				echo "Kernel Modules not enabled" ; \
-			fi ;
+	$(MAKE) $(MAKE_FLAGS) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) $(BOARD_KERNEL_IMAGE_NAME)
+	$(hide) if grep -q '^CONFIG_OF=y' $(KERNEL_CONFIG); then \
+			echo "Building DTBs"; \
+			$(MAKE) $(MAKE_FLAGS) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) dtbs; \
+		fi
+	$(hide) if grep -q '^CONFIG_MODULES=y' $(KERNEL_CONFIG); then \
+			echo "Building Kernel Modules"; \
+			$(MAKE) $(MAKE_FLAGS) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) modules; \
+		fi
 
+.PHONY: INSTALLED_KERNEL_MODULES
+INSTALLED_KERNEL_MODULES:
+	$(hide) if grep -q '^CONFIG_MODULES=y' $(KERNEL_CONFIG); then \
+			echo "Installing Kernel Modules"; \
+			$(MAKE) $(MAKE_FLAGS) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) INSTALL_MOD_PATH=../../$(KERNEL_MODULES_INSTALL) modules_install && \
+			mofile=$$(find $(KERNEL_MODULES_OUT) -type f -name modules.order) && \
+			mpath=$$(dirname $$mofile) && \
+			for f in $$(find $$mpath/kernel -type f -name '*.ko'); do \
+				$(KERNEL_TOOLCHAIN_PATH)strip --strip-unneeded $$f; \
+				mv $$f $(KERNEL_MODULES_OUT); \
+			done && \
+			rm -rf $$mpath && \
+			mkdir -p $(KERNEL_DEPMOD_STAGING_DIR)/lib/modules/0.0/$(KERNEL_MODULE_MOUNTPOINT)/lib/modules && \
+			find $(KERNEL_MODULES_OUT) -name *.ko -exec cp {} $(KERNEL_DEPMOD_STAGING_DIR)/lib/modules/0.0/$(KERNEL_MODULE_MOUNTPOINT)/lib/modules \; && \
+			$(DEPMOD) -b $(KERNEL_DEPMOD_STAGING_DIR) 0.0 && \
+			sed -e 's/\(.*modules.*\):/\/\1:/g' -e 's/ \([^ ]*modules[^ ]*\)/ \/\1/g' $(KERNEL_DEPMOD_STAGING_DIR)/lib/modules/0.0/modules.dep > $(KERNEL_MODULES_OUT)/modules.dep; \
+		fi
 
 $(TARGET_KERNEL_MODULES): TARGET_KERNEL_BINARIES
 
 $(TARGET_PREBUILT_INT_KERNEL): $(TARGET_KERNEL_MODULES)
-	$(mv-modules)
-	$(clean-module-folder)
 
 $(KERNEL_HEADERS_INSTALL_STAMP): $(KERNEL_OUT_STAMP) $(KERNEL_CONFIG)
 	@echo "Building Kernel Headers"
@@ -348,6 +341,12 @@ kernelxconfig kernelconfig: $(KERNEL_OUT_STAMP)
 	$(MAKE) $(MAKE_FLAGS) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) $(KERNEL_DEFCONFIG)
 	env KCONFIG_NOTIMESTAMP=true \
 		 $(MAKE) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) $(KERNELCONFIG_MODE)
+	env KCONFIG_NOTIMESTAMP=true \
+		 $(MAKE) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) savedefconfig
+	cp $(KERNEL_OUT)/defconfig $(KERNEL_DEFCONFIG_SRC)
+
+kernelsavedefconfig: $(KERNEL_OUT_STAMP)
+	$(MAKE) $(MAKE_FLAGS) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) $(KERNEL_DEFCONFIG)
 	env KCONFIG_NOTIMESTAMP=true \
 		 $(MAKE) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) savedefconfig
 	cp $(KERNEL_OUT)/defconfig $(KERNEL_DEFCONFIG_SRC)

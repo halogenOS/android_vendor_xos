@@ -4,12 +4,9 @@
 ifeq ($(strip $(BOARD_CUSTOM_BOOTIMG_MK)),)
 ifeq ($(strip $(BOARD_KERNEL_SEPARATED_DT)),true)
 ifneq ($(strip $(BOARD_KERNEL_PREBUILT_DT)),true)
-ifeq ($(strip $(BUILD_TINY_ANDROID)),true)
-include device/qcom/common/dtbtool/Android.mk
-endif
 
 ifeq ($(strip $(TARGET_CUSTOM_DTBTOOL)),)
-DTBTOOL_NAME := dtbToolCM
+DTBTOOL_NAME := dtbToolLineage
 else
 DTBTOOL_NAME := $(TARGET_CUSTOM_DTBTOOL)
 endif
@@ -19,7 +16,7 @@ DTBTOOL := $(HOST_OUT_EXECUTABLES)/$(DTBTOOL_NAME)$(HOST_EXECUTABLE_SUFFIX)
 INSTALLED_DTIMAGE_TARGET := $(PRODUCT_OUT)/dt.img
 
 ifeq ($(strip $(TARGET_CUSTOM_DTBTOOL)),)
-# dtbToolCM will search subdirectories
+# dtbToolLineage will search subdirectories
 possible_dtb_dirs = $(KERNEL_OUT)/arch/$(KERNEL_ARCH)/boot/
 else
 # Most specific paths must come first in possible_dtb_dirs
@@ -38,8 +35,16 @@ define build-dtimage-target
     $(hide) chmod a+r $@
 endef
 
+ifeq ($(strip $(BOARD_KERNEL_LZ4C_DT)),true)
+LZ4_DT_IMAGE := $(PRODUCT_OUT)/dt-lz4.img
+endif
+
 $(INSTALLED_DTIMAGE_TARGET): $(DTBTOOL) $(INSTALLED_KERNEL_TARGET)
 	$(build-dtimage-target)
+ifeq ($(strip $(BOARD_KERNEL_LZ4C_DT)),true)
+	lz4 -9 < $@ > $(LZ4_DT_IMAGE) || lz4c -c1 -y $@ $(LZ4_DT_IMAGE)
+	$(hide) $(ACP) $(LZ4_DT_IMAGE) $@
+endif
 	@echo "Made DT image: $@"
 
 ALL_DEFAULT_INSTALLED_MODULES += $(INSTALLED_DTIMAGE_TARGET)
