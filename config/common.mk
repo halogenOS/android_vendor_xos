@@ -121,7 +121,7 @@ XOS_MOD_VERSION := XOS_$(XOS_BUILD)_$(ANDROID_VERSION)_$(XOS_BUILD_DATE)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
-    ro.xos.version=$(XOS_BUILD_DATE) \
+    ro.xos.version=$(XOS_MOD_VERSION) \
     ro.mod.version=$(XOS_MOD_VERSION) \
     ro.mod.revisions=$(THE_REVISIONS)
 
