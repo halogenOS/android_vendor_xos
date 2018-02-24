@@ -111,7 +111,7 @@ include vendor/xos/config/packages.mk
 ANDROID_VERSION = 8.1
 PLATFORM_VERSION_CODENAME = REL
 
-THE_REVISIONS := caf=LA.UM.6.4.r1-05700-8x98.0,droid=$(shell grep "refs/tags/" .repo/manifests/default.xml  | cut -d '"' -f2 | cut -d '/' -f3)
+THE_REVISIONS := caf=$(shell grep "refs/tags/" .repo/manifests/snippets/caf.xml  | cut -d '"' -f2 | cut -d '/' -f3),droid=$(shell grep "refs/tags/" .repo/manifests/default.xml  | cut -d '"' -f2 | cut -d '/' -f3)
 
 XOS_BUILD_DATE := $(shell date +%Y%m%d)
 
