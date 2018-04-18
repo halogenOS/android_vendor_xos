@@ -63,10 +63,6 @@ PRODUCT_PACKAGES += \
     sqlite3 \
     strace
 
-# Camera
-PRODUCT_PACKAGES += \
-	SnapdragonCamera
-
 # Media
 PRODUCT_PACKAGES += \
 	libavcodec \
@@ -74,21 +70,10 @@ PRODUCT_PACKAGES += \
 	libswscale \
 	libswresample
 
-# OMS
-PRODUCT_PACKAGES += \
-       ThemeInterfacer
-
-# Bash
-PRODUCT_PACKAGES += bash
-
 # GNU Nano
 PRODUCT_PACKAGES += \
 	nano \
 	libncurses
-
-#OTA
-PRODUCT_PACKAGES += \
-        OTAUpdates
 
 include vendor/xos/config/essentials.mk
 
