@@ -61,7 +61,8 @@ PRODUCT_PACKAGES += \
     micro_bench \
     oprofiled \
     sqlite3 \
-    strace
+    strace \
+    htop
 
 # Media
 PRODUCT_PACKAGES += \
