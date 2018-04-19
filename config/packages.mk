@@ -40,41 +40,38 @@ PRODUCT_PACKAGES += \
 
 # Extra Tools and Libraries
 PRODUCT_PACKAGES += \
-    busybox \
-    libemoji \
-    libsepol \
-    e2fsck \
-    mke2fs \
-    tune2fs \
     bash \
-    powertop \
-    mount.exfat \
+    busybox \
+    e2fsck \
+    fibmap.f2fs \
     fsck.exfat \
+    fsck.f2fs \
+    fsck.ntfs \
+    gdbserver \
+    htop \
+    libemoji \
+    libncurses \
+    libsepol \
+    micro_bench \
+    mke2fs \
     mkfs.exfat \
     mkfs.f2fs \
-    fsck.f2fs \
-    fibmap.f2fs \
     mkfs.ntfs \
-    fsck.ntfs \
+    mount.exfat \
     mount.ntfs \
-    gdbserver \
-    micro_bench \
+    nano \
     oprofiled \
+    powertop \
+    tune2fs \
     sqlite3 \
-    strace \
-    htop
+    strace
 
 # Media
 PRODUCT_PACKAGES += \
-	libavcodec \
-	libavutil \
-	libswscale \
-	libswresample
-
-# GNU Nano
-PRODUCT_PACKAGES += \
-	nano \
-	libncurses
+    libavcodec \
+    libavutil \
+    libswscale \
+    libswresample
 
 include vendor/xos/config/essentials.mk
 
