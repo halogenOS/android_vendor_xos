@@ -108,7 +108,7 @@ USE_DEX2OAT_DEBUG ?= false
 include vendor/xos/config/packages.mk
 
 # Versioning
-ANDROID_VERSION = 8.1
+ANDROID_VERSION = $(shell cat .repo/manifests/default.xml | grep 'refs/tags/android-' | sed -re 's/.*refs\/tags\/android-(([0-9]+?[.]{0,1})*)_.*/\1/')
 PLATFORM_VERSION_CODENAME = REL
 
 THE_REVISIONS := caf=$(shell grep "refs/tags/" .repo/manifests/snippets/caf.xml  | cut -d '"' -f2 | cut -d '/' -f3),droid=$(shell grep "refs/tags/" .repo/manifests/default.xml  | cut -d '"' -f2 | cut -d '/' -f3)
