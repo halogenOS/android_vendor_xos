@@ -20,7 +20,9 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent \
     ro.com.android.dateformat=MM-dd-yyyy \
     persist.sys.disable_rescue=true \
-    ro.setupwizard.rotation_locked=true
+    ro.setupwizard.rotation_locked=true \
+    ro.boot.vendor.overlay.theme=com.android.system.theme.dark;com.android.documentsui.theme.dark;com.android.facelock.theme.dark;com.android.settings.theme.dark;com.android.settings.intelligence.theme.dark;com.android.systemui.custom.theme.dark;com.android.gboard.theme.dark;com.android.wellbeing.theme \
+    ro.opa.eligible_device=true
 
 # Default notification/alarm sounds
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
