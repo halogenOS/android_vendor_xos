@@ -20,8 +20,9 @@ try:
     for res in data:
         if res['codename'] != "treble_gsi":
             for version in res['supported_versions']:
-                if version['version_code'] == 'pie' or version['version_code'] == 'pie_go' or
-                   version['version_code'] == 'XOS-9.0':
+                if (version['version_code'] == 'pie'
+                or version['version_code'] == 'pie_go'
+                or version['version_code'] == 'XOS-9.0'):
                     print (res['codename'])
                     break
 except:
