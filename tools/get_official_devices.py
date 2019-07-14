@@ -14,13 +14,14 @@ except:
     urllib.parse = urlparse
     urllib.request = urllib2
 try:
-    url = "https://raw.githubusercontent.com/PixelExperience/official_devices/master/devices.json"
+    url = "https://git.halogenos.org/halogenOS/android_vendor_xos_officialdevices/raw/branch/XOS-9.0/devices.json"
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
     for res in data:
         if res['codename'] != "treble_gsi":
             for version in res['supported_versions']:
-                if version['version_code'] == 'pie' or version['version_code'] == 'pie_go':
+                if version['version_code'] == 'pie' or version['version_code'] == 'pie_go' or
+                   version['version_code'] == 'XOS-9.0':
                     print (res['codename'])
                     break
 except:
