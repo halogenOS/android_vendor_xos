@@ -9,18 +9,37 @@ Additional functions:
 - pixelrebase:     Rebase a Gerrit change and push it again.
 - aospremote:      Add git remote for matching AOSP repository.
 - cafremote:       Add git remote for matching CodeAurora repository.
-- githubremote:    Add git remote for PixelExperience Github.
+- xosremote:       Add git remote for XOS Git.
+- peremote:        Add git remote for PixelExperience GitHub.
 - mka:             Builds using SCHED_BATCH on all processors.
 - mkap:            Builds the module(s) using mka and pushes them to the device.
 - cmka:            Cleans and builds using mka.
 - repodiff:        Diff 2 different branches or tags within the same repo
 - repolastsync:    Prints date and time of last repo sync.
 - reposync:        Parallel repo sync using ionice and SCHED_BATCH.
-- repopick:        Utility to fetch changes from PixelExperience Gerrit.
+- repopick:        Utility to fetch changes from XOS Gerrit.
+- perepopick:      Utility to fetch changes from PixelExperience Gerrit.
 - losrepopick:     Utility to fetch changes from Lineage Gerrit.
 - installboot:     Installs a boot.img to the connected device.
 - installrecovery: Installs a recovery.img to the connected device.
 EOF
+}
+
+function get_platform_path()
+{
+    PWD="$(pwd)"
+    original_string="$PWD"
+    string_to_replace="$ANDROID_PLATFORM_ROOT"
+    result_string="${original_string//$string_to_replace}"
+    result_string=$(echo -n "$result_string" | sed -e 's/-caf.*//g');
+    echo -n "$result_string"
+}
+
+function get_underscore_path()
+{
+    ppath="$(get_platform_path $@)"
+    ppath="${ppath/\/default/}"
+    echo -n "android_${ppath//\//_}"
 }
 
 function mk_timer()
@@ -256,6 +275,21 @@ function dddclient()
    fi
 }
 
+function xosremote()
+{
+    if ! git rev-parse --git-dir &> /dev/null
+    then
+        echo ".git directory not found. Please run this from the root directory of the Android repository you wish to set up."
+        return 1
+    fi
+    git remote rm xos 2> /dev/null
+
+    local PROJECT=$(get_underscore_path)
+
+    git remote add xos https://git.halogenos.org/$PROJECT
+    echo "Remote 'xos' created"
+}
+
 function aospremote()
 {
     if ! git rev-parse --git-dir &> /dev/null
@@ -304,7 +338,7 @@ function cafremote()
     echo "Remote 'caf' created"
 }
 
-function githubremote()
+function peremote()
 {
     if ! git rev-parse --git-dir &> /dev/null
     then
@@ -882,6 +916,11 @@ alias mkap='dopush mka'
 alias cmkap='dopush cmka'
 
 function repopick() {
+    T=$(gettop)
+    $T/vendor/aosp/build/tools/repopick.py --gerrit "https://review.halogenos.org" $@
+}
+
+function perepopick() {
     T=$(gettop)
     $T/vendor/aosp/build/tools/repopick.py $@
 }
