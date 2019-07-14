@@ -967,3 +967,9 @@ fi
 if [ -n "$JACK_SERVER_VM_ARGUMENTS" ] && [ -z "$ANDROID_JACK_VM_ARGS" ]; then
     export ANDROID_JACK_VM_ARGS=$JACK_SERVER_VM_ARGUMENTS
 fi
+
+XOSTOOLS_SOURCE_SCRIPT="$(gettop)/external/xos/xostools/xostools.sh"
+
+if [ -f "$XOSTOOLS_SOURCE_SCRIPT" ]; then
+    source "$XOSTOOLS_SOURCE_SCRIPT"
+fi
