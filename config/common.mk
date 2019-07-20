@@ -75,6 +75,10 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 endif
 
+# Bootanimation
+PRODUCT_COPY_FILES += \
+    vendor/xos/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
+
 # Copy all custom init rc files
 $(foreach f,$(wildcard vendor/aosp/prebuilt/common/etc/init/*.rc),\
     $(eval PRODUCT_COPY_FILES += $(f):system/etc/init/$(notdir $f)))
