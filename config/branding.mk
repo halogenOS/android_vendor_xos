@@ -24,6 +24,9 @@ ROM_FINGERPRINT := halogenOS/$(CUSTOM_PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/
 endif
 
 CUSTOM_PROPERTIES := \
+    ro.rom.name=halogenOS \
+    ro.rom.build_date=$(CUSTOM_BUILD_DATE) \
+    ro.rom.build_type=$(CUSTOM_BUILD_TYPE) \
     org.pixelexperience.build_date=$(CUSTOM_BUILD_DATE) \
     org.halogenos.version=$(CUSTOM_VERSION_PROP) \
     org.halogenos.build_date=$(CUSTOM_BUILD_DATE) \
