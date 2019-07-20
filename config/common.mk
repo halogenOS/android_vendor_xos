@@ -79,7 +79,7 @@ endif
 
 # Bootanimation
 PRODUCT_COPY_FILES += \
-    vendor/xos/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
+    vendor/aosp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 
 # Copy all custom init rc files
 $(foreach f,$(wildcard vendor/aosp/prebuilt/common/etc/init/*.rc),\
