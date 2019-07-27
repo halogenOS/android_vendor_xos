@@ -145,6 +145,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SetupWizardOverlay
 
+# Stuff that we want
+PRODUCT_PACKAGES += \
+    LatinIME \
+    Calendar \
+    Contacts \
+    Dialer \
+    Gallery2 \
+    Messaging
+
 # Branding
 include vendor/aosp/config/branding.mk
 
